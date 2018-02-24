@@ -1,5 +1,5 @@
 # Project-Team-16
-Student Names: William Baron, Anna Chow, Venkat Golladmudi, Vu Nguyen	<br>
+Student Names: William Baron, Anna Chow, Venkat Pushpak Gollamudi, Vu Nguyen	<br>
 Team Name: Team 16
 
 <h3>Project title: Chatbot weather<br></h3>
