@@ -1,0 +1,26 @@
+db=users
+
+
+1st iteration of tables and structure 
+
+User:
+ 	UserID, (primary)
+ 	UserPassword,
+ 	UserEmail,
+   	UserRole (secondary index)
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
