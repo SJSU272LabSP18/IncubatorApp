@@ -1,5 +1,6 @@
 const User=require('../../models/user');
 const UserSession=require('../../models/usersession');
+const Projects=require('../../models/projects');
 module.exports = (app) => {
   // app.get('/api/counters', (req, res, next) => {
   //   Counter.find()
@@ -246,6 +247,102 @@ $set:{isDeleted:true}
 
 
 });
+
+
+
+
+app.post('/api/account/Signedup',(req,res,next)=>{
+
+ //   const{body}=req;
+ //   const{
+ //     UserName,
+ //     Submitter,
+ //     CoSubmitters,
+ //     InnovationTitle,
+ //   description,
+ //   Product,
+ //   Component,
+ //   OperatingSystem,
+ //   GitLink
+ // }=body;
+     // let {
+     //
+     //   email
+     // }=body;
+let body = req.body;
+
+if(!body || !body.Submitter || !body.CoSubmitters || !body.InnovationTitle || !body.Description || !body.Product|| !body.Component || !body.OperatingSystem || !body.GitLink){
+     		return res.send(
+          {
+
+            success:false,
+            message:'Error:Insufficient information'
+          });
+     	}
+
+
+Projects.find({InnovationTitle: body.InnovationTitle},(err,previousUsers)=>{
+
+if(err){
+  return res.send(
+    {
+      success:false,
+      message:'Error: Server Error '
+    });
+}
+
+else if(previousUsers.length>0){
+  console.log(previousUsers);
+  console.log("length",previousUsers.length);
+  return res.send(
+    {
+
+      success:false,
+      message:'Error:Innovation Title already exists'
+    });
+
+}
+const newProject = new Projects();
+newProject.UserName=body.UserName
+newProject.Submitter=body.Submitter;
+newProject.CoSubmitters=body.CoSubmitters;
+newProject.InnovationTitle=body.InnovationTitle;
+newProject.Description=body.Description;
+newProject.Product=body.Product;
+newProject.Component=body.Component;
+newProject.OperatingSystem=body.OperatingSystem;
+newProject.GitLink=body.GitLink;
+
+newProject.save((err,user)=>{
+
+if(err){
+  return res.send(
+    {
+      success:false,
+      message:'Error: Server Error '
+    });
+
+}else{
+
+return res.send(
+    {
+      success:true,
+      message:'project added'
+    });
+}
+
+})
+
+});
+
+
+
+});
+
+
+
+
+
 
 
 };
