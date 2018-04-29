@@ -32,6 +32,46 @@ app.controller('HeaderController', function($scope, $localStorage, $sessionStora
 
 app.controller('HomeController', function($scope, $localStorage, $sessionStorage){});
 
+app.controller('submitController', function($scope, $localStorage, $sessionStorage){
+
+$scope.submitRegister = function(){
+
+
+
+console.log($scope);
+
+        // Login request
+        $http({
+            method: 'POST',
+            url: '/account/login',
+            data: {
+                     
+                    'submitter': $scope.SubmitForm.username,
+                    'password': $scope.SubmitForm.password
+                }
+            })
+            .success(function(response){
+                // $localStorage persists data in browser's local storage (prevents data loss on page refresh)
+                $localStorage.status = true;
+                $localStorage.user = response;
+                $location.path('/');
+            })
+            .error(function(){
+                alert('Login failed. Check username/password and try again.');
+            }
+        );
+
+
+
+
+}
+
+
+
+
+
+});
+
 app.controller('LoginController', function($scope, $localStorage, $sessionStorage, $location, $http){
 
     // Login submission
@@ -248,6 +288,11 @@ app.config(function($routeProvider) {
         when('/account/create', {
             templateUrl: 'views/create_account.html',
             controller: 'CreateAccountController'
+        }).
+
+        when('/account/submit',{
+             templateUrl: 'views/submit.html',
+            controller: 'submitController'
         }).
 
         //Protected page
