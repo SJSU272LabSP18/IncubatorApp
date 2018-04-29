@@ -20,8 +20,9 @@ var express = require('express'),// server middleware
     cfenv = require('cfenv'),// Cloud Foundry Environment Variables
     appEnv = cfenv.getAppEnv(),// Grab environment variables
 
-    User = require('./server/models/user.model');
-    
+    User = require('./server/models/user.model'),
+    Projects=require('./server/models/projects');
+
 
 /********************************
 Local Environment Variables
@@ -30,7 +31,7 @@ if(appEnv.isLocal){
     require('dotenv').load();// Loads .env file into environment
 }
 
-/******************************** 
+/********************************
  MongoDB Connection
  ********************************/
 
@@ -235,6 +236,59 @@ app.post('/account/delete', authorizeRequest, function(req, res){
     });
 
 });
+
+//Add Project
+app.post('/account/submit', function(req,res){
+
+
+  //req.checkBody('username', 'Username is required').notEmpty();
+  req.checkBody('submitter', 'submitter is required').notEmpty();
+  req.checkBody('codevelopers', 'codevelopers is required').notEmpty();
+  req.checkBody('InnovationTitle', 'InnovationTitle is required').notEmpty();
+  req.checkBody('description', 'description is required').notEmpty();
+  req.checkBody('product', 'product is required').notEmpty();
+  req.checkBody('gitlink', 'gitlink is required').notEmpty();
+  req.checkBody('component', 'component is required').notEmpty();
+  req.checkBody('os', 'os is required').notEmpty();
+
+
+
+  var project = new Projects({
+      UserName: 'testUser',
+      Submitter: req.body.submitter,
+      CoSubmitters: req.body.codevelopers,
+      InnovationTitle: req.body.InnovationTitle,
+      Description: req.body.description,
+      Product: req.body.product,
+      Component: req.body.component,
+      OperatingSystem: req.body.os,
+      GitLink: req.body.gitlink
+
+  });
+
+  Projects.findOne({ InnovationTitle: req.body.InnovationTitle}, function(err, existingUser) {
+      if (existingUser) {
+          return res.status(400).send('InnovationTitle already exists. Please try a different InnovationTitle.');
+      }
+      project.save(function(err) {
+          if (err) {
+              console.log(err);
+              res.status(500).send('Error saving new project (database error). Please try again.');
+              return;
+          }
+          res.status(200).send('Account created! Please login with your new account.');
+      });
+  });
+
+
+});
+
+
+
+
+
+
+
 
 // Account update
 app.post('/account/update', authorizeRequest, function(req,res){

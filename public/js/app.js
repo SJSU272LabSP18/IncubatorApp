@@ -32,32 +32,42 @@ app.controller('HeaderController', function($scope, $localStorage, $sessionStora
 
 app.controller('HomeController', function($scope, $localStorage, $sessionStorage){});
 
-app.controller('submitController', function($scope, $localStorage, $sessionStorage){
+app.controller('submitController', function($scope, $localStorage, $http, $sessionStorage, $location){
 
 $scope.submitRegister = function(){
 
 
-
+console.log('inside controller');
 console.log($scope);
 
         // Login request
         $http({
             method: 'POST',
-            url: '/account/login',
+            url: '/account/submit',
             data: {
-                     
-                    'submitter': $scope.SubmitForm.username,
-                    'password': $scope.SubmitForm.password
+
+            //  'username': ,
+              'submitter':$scope.SubmitForm.submitter,
+              'codevelopers':$scope.SubmitForm.codevelopers,
+              'InnovationTitle':$scope.SubmitForm.InnovationTitle,
+              'description':$scope.SubmitForm.description,
+              'product':$scope.SubmitForm.product,
+              'gitlink':$scope.SubmitForm.gitlink,
+              'component':$scope.SubmitForm.component,
+              'os':$scope.SubmitForm.os
                 }
             })
             .success(function(response){
                 // $localStorage persists data in browser's local storage (prevents data loss on page refresh)
                 $localStorage.status = true;
                 $localStorage.user = response;
+                console.log($localStorage);
+                console.log($location);
+                alert('Project added successfully.');
                 $location.path('/');
             })
             .error(function(){
-                alert('Login failed. Check username/password and try again.');
+                alert('Error, unable to add project');
             }
         );
 
@@ -289,7 +299,7 @@ app.config(function($routeProvider) {
             templateUrl: 'views/create_account.html',
             controller: 'CreateAccountController'
         }).
-
+        // add project
         when('/account/submit',{
              templateUrl: 'views/submit.html',
             controller: 'submitController'
