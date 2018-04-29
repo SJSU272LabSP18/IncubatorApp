@@ -36,9 +36,9 @@ app.controller('HomeController', function($scope, $localStorage, $sessionStorage
 
 app.controller('submitController', function($scope, $localStorage, $http, $sessionStorage, $location){
   // console.log("inside submit controller");
-  // $scope.user = $localStorage;
+  $scope.user = $localStorage;
   // console.log("scope user");
-  // console.log($scope.user.user);
+ console.log($scope.user.user.username);
   // console.log("scope submit form");
   // console.log($scope.submitForm);
 
@@ -54,9 +54,9 @@ console.log($scope);
             url: '/account/submit',
             data: {
 
-            //  'username': ,
+              'username': $scope.user.user.username,
               'submitter':$scope.SubmitForm1.submitter,
-              'codevelopers':$scope.SubmitForm1.codevelopers,
+              'CoSubmitters':$scope.SubmitForm1.cosubmitter,
               'InnovationTitle':$scope.SubmitForm1.InnovationTitle,
               'description':$scope.SubmitForm1.description,
               'product':$scope.SubmitForm1.product,

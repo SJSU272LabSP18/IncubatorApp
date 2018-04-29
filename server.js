@@ -241,7 +241,7 @@ app.post('/account/delete', authorizeRequest, function(req, res){
 app.post('/account/submit', function(req,res){
 
 
-  //req.checkBody('username', 'Username is required').notEmpty();
+  req.checkBody('username', 'Username is required').notEmpty();
   req.checkBody('submitter', 'submitter is required').notEmpty();
   req.checkBody('codevelopers', 'codevelopers is required').notEmpty();
   req.checkBody('InnovationTitle', 'InnovationTitle is required').notEmpty();
@@ -254,9 +254,9 @@ app.post('/account/submit', function(req,res){
 
 
   var project = new Projects({
-      UserName: 'testUser',
+      UserName: req.body.username,
       Submitter: req.body.submitter,
-      CoSubmitters: req.body.codevelopers,
+      CoSubmitters: req.body.CoSubmitters,
       InnovationTitle: req.body.InnovationTitle,
       Description: req.body.description,
       Product: req.body.product,
