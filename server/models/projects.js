@@ -1,20 +1,45 @@
-use strict;
+const mongoose = require('mongoose');
 
-/********************************
- Dependencies
- ********************************/
-var mongoose = require('mongoose'),
+const ProjectSchema = new mongoose.Schema({
+  UserName:{
+    type: String,
+    default: ''
 
-/********************************
- Create User Account Schema
- ********************************/
-var projects = new mongoose.Schema({
-    userId: {type: String, required: true, unique: true},
-    link: {type: String, required: true},
-    
+  },
+  Submitter: {
+    type: String,
+    default: ''
+  },
+  CoSubmitters: {
+    type: String,
+    default: ''
+  },
+  InnovationTitle: {
+    type: String,
+    default: ''
+  },
+  Description: {
+    type: String,
+    default: ''
+  },
+  Product: {
+    type: String,
+    default: ''
+  },
+
+  Component: {
+    type: String,
+    default: ''
+  },
+  OperatingSystem: {
+    type: String,
+    default: ''
+  },
+  GitLink: {
+    type: String,
+    default: ''
+  }
+
 });
 
-// Used by Passport middleware to validate password against what is stored in DB
-
-
-module.exports = mongoose.model('User', accountSchema);
+module.exports = mongoose.model('Projects', ProjectSchema);
