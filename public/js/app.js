@@ -10,6 +10,8 @@ app.controller('HeaderController', function($scope, $localStorage, $sessionStora
 
     // Set local scope to persisted user data
     $scope.user = $localStorage;
+    // console.log("scope user");
+    // console.log($scope.user.user);
 
     // Logout function
     $scope.logout = function(){
@@ -33,6 +35,12 @@ app.controller('HeaderController', function($scope, $localStorage, $sessionStora
 app.controller('HomeController', function($scope, $localStorage, $sessionStorage){});
 
 app.controller('submitController', function($scope, $localStorage, $http, $sessionStorage, $location){
+  // console.log("inside submit controller");
+  // $scope.user = $localStorage;
+  // console.log("scope user");
+  // console.log($scope.user.user);
+  // console.log("scope submit form");
+  // console.log($scope.submitForm);
 
 $scope.submitRegister = function(){
 
@@ -47,20 +55,20 @@ console.log($scope);
             data: {
 
             //  'username': ,
-              'submitter':$scope.SubmitForm.submitter,
-              'codevelopers':$scope.SubmitForm.codevelopers,
-              'InnovationTitle':$scope.SubmitForm.InnovationTitle,
-              'description':$scope.SubmitForm.description,
-              'product':$scope.SubmitForm.product,
-              'gitlink':$scope.SubmitForm.gitlink,
-              'component':$scope.SubmitForm.component,
-              'os':$scope.SubmitForm.os
+              'submitter':$scope.SubmitForm1.submitter,
+              'codevelopers':$scope.SubmitForm1.codevelopers,
+              'InnovationTitle':$scope.SubmitForm1.InnovationTitle,
+              'description':$scope.SubmitForm1.description,
+              'product':$scope.SubmitForm1.product,
+              'gitlink':$scope.SubmitForm1.gitlink,
+              'component':$scope.SubmitForm1.component,
+              'os':$scope.SubmitForm1.os
                 }
             })
             .success(function(response){
                 // $localStorage persists data in browser's local storage (prevents data loss on page refresh)
-                $localStorage.status = true;
-                $localStorage.user = response;
+                //$localStorage.status = true;
+                //$localStorage.user = response;
                 console.log($localStorage);
                 console.log($location);
                 alert('Project added successfully.');
@@ -102,6 +110,8 @@ app.controller('LoginController', function($scope, $localStorage, $sessionStorag
                 // $localStorage persists data in browser's local storage (prevents data loss on page refresh)
                 $localStorage.status = true;
                 $localStorage.user = response;
+
+
                 $location.path('/');
             })
             .error(function(){

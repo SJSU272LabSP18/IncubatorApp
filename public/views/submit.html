@@ -1,9 +1,11 @@
+
+<!--
 <!DOCTYPE html>
 
     <head>
 
     </head>
-    <body ng-app="MEANapp">
+    <body ng-app="MEANapp"> -->
 
                     <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
                     <a class="hiddenanchor" id="toregister"></a>
@@ -12,54 +14,55 @@
 
 
                         <div id="register" class="animate form">
-                            <form autocomplete="on" ng-submit="submitRegister()" name="SubmitForm">
+                            <form  ng-submit="submitRegister()" name="SubmitForm">
                                 <h1> Sign up </h1>
                                 <p>
-                                    <label for="Submitter" class="uname" data-icon="u">Submitter:</label>
-                                    <input id="Submitter" name="submitter" required="required" type="text" ng-model="SubmitForm.submitter"
-                                    required placeholder="" />
+                                    <label for="Submitter"  data-icon="u">Submitter:</label>
+                                    <input id="Submitter" name="submitter" required="required" type="text" ng-model="SubmitForm1.submitter"
+                                    required placeholder="testttttttttt" />
                                 </p>
                                 <p>
                                     <label for="CoDevelopers" class="uname"  > Co-Developers:</label>
-                                    <input id="CoDevelopers" name="cosubmitter" required="required" type="text" ng-model="SubmitForm.cosubmitter"
+                                    <input id="CoDevelopers" name="cosubmitter" required="required" type="text" ng-model="SubmitForm1.cosubmitter"
                                     required placeholder=""/>
                                 </p>
                                 <p>
                                     <label for="InnovationTitle" class="uname" >Innovation Title: </label>
-                                    <input id="InnovationTitle" name="InnovationTitle" required="required" type="text" ng-model="SubmitForm.InnovationTitle"
+                                    <input id="InnovationTitle" name="InnovationTitle" required="required" type="text" ng-model="SubmitForm1.InnovationTitle"
                                     placeholder=""/>
                                 </p>
                                 <p>
                                     <label for="Description" class="uname" >Description </label>
-                                    <textarea id="Description" name="description" required="required" ng-model="SubmitForm.description"  placeholder="Add a description here - 250 characters max"></textarea>
+                                    <textarea id="Description" name="description" required="required" ng-model="SubmitForm1.description"  placeholder="Add a description here - 250 characters max"></textarea>
                                 </p>
                                 <p>
                                     <label for="product" class="uname" >Product </label>
-                                    <input id="product" name="product" required="required"  ng-model="SubmitForm.product" type="text" placeholder=""/>
+                                    <input id="product" name="product" required="required"  ng-model="SubmitForm1.product" type="text" placeholder=""/>
                                 </p>
                                 <p>
                                     <label for="gitlink" class="uname" >Git Link </label>
-                                    <input id="gitlink" name="gitlink" required="required"  ng-model="SubmitForm.gitlink" type="text" placeholder=""/>
+                                    <input id="gitlink" name="gitlink" required="required"  ng-model="SubmitForm1.gitlink" type="text" placeholder=""/>
                                 </p>
                                 <p>
                                     <label for="component" class="uname" >Component </label>
-                                    <input id="component" name="component" required="required"  ng-model="SubmitForm.component" type="text" placeholder=""/>
+                                    <input id="component" name="component" required="required"  ng-model="SubmitForm1.component" type="text" placeholder=""/>
                                 </p>
                                 <p>
                                     <label for="os" class="uname" >Operating system </label>
-                                    <input id="os" name="os" required="required" type="text"   ng-model="SubmitForm.os"  placeholder=""/>
+                                    <input id="os" name="os" required="required" type="text"   ng-model="SubmitForm1.os"  placeholder=""/>
                                 </p>
+
                                 <p class="signin button">
-                  <input type="submit" class="center" value="Sign up"/>
+                  <input type="submit" class="center" value="Add Project"/>
                 </p>
-                                <p class="change_link">
+                                <!-- <p class="change_link">
                   Already a member ?
                   <a href="#tologin" class="to_register"> Go and log in </a>
-                </p>
+                </p> -->
                             </form>
                         </div>
 
                     </div>
                 </div>
             </section>
-          </body>
+          <!-- </body> -->

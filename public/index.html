@@ -12,7 +12,7 @@
 
 </head>
 <body ng-app="MEANapp">
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark" ng-controller="HeaderController">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation" style="">
                 <!--<img class="img-fluid" src="assets/logo_dark.png" height="30" width="30"/>-->
                 <span class="navbar-toggler-icon"></span>
@@ -38,6 +38,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href='' ng-click="logout()" ng-show="user.status">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href=''  ng-show="user.status">Welcome: {{user.user.username}}</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
