@@ -1,0 +1,13 @@
+---
+applications:
+- name: Free Range
+  host: mean-${random-word}
+  memory: 256M
+  services:
+  - FreeRangeDB
+  env:
+    NODE_ENV: cloud-foundry
+declared-services:
+  FreeRangeDB:
+    label: compose-for-mongodb
+    plan: Standard
