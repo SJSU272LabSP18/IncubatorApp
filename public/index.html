@@ -51,39 +51,25 @@
             </div>
         </nav>
     </div>
-        <div ng-controller="HeaderController">
-        <div class="row">
-
-            <div id="sidebar-container" class="sidebar-expanded col-md-2 d-none d-md-block">
-                <ul class="list-group">
-                <!--<ul class="nav nav-pills flex-column">-->
-                    <li class="list-group-item">
-                        <a class="nav-link">
-                            Projects
-                            <span href="#/views/protected" class="sr-only">(current)</span>
+    <div ng-controller="HeaderController">
+        <div class="container-fluid">
+            <div class="row">
+                <span class="sidebar-expanded d-none d-md-block" id="sidebar-container">
+                    <div class="list-group">
+                    <!--<ul class="nav nav-pills flex-column">-->
+                        <a href="#/views/protected" class="list-group-item">Projects
                         </a>
-                    </li>
-                    <li class="list-group-item">
-
-                        <span class="nav-link">
-                            <a href="#/account/submit">Submit</a>
-                        </span>
-                    </li>
-                    <li class="list-group-item">
-                        <a class="nav-link">
-                            <span href="#/views/metrics">Metrics</span>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a class="nav-link">
-                            <span href="#/views/search">Search</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="container-fluid col-md-10" ng-view>
-
-                <!--Views loaded here via $routeProvider in app.js-->
+    					<a href="#/account/submit" class="list-group-item">Submit
+    					</a>
+    					<a href="#/views/metrics" class="list-group-item">Metrics
+    					</a>
+    					<a href="#/views/search" class="list-group-item">Search
+    					</a>
+                    </div>
+                </span>
+                <div class="container-fluid col-md-10" ng-view>
+                    <!--Views loaded here via $routeProvider in app.js-->
+                </div>
             </div>
         </div>
     </div>
