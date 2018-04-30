@@ -138,8 +138,26 @@ passport.use(new LocalStrategy(
  ********************************/
 
 // Home
-app.get('/', function (req, res){
-    res.sendfile('index.html');
+app.get('/dash/home', function (req, res){
+
+  Projects.find({},{}).exec(function(err,projects){
+      if(err){
+      console.log("error finding the projects");
+      res.status(500).json(err)
+
+    }else{
+
+      console.log("found projects :",projects.length);
+      console.log(projects)
+      res.json(projects);
+
+    }
+
+
+
+
+  //  res.sendfile('index.html');
+});
 });
 
 // Account login

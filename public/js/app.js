@@ -32,7 +32,26 @@ app.controller('HeaderController', function($scope, $localStorage, $sessionStora
     };
 });
 
-app.controller('HomeController', function($scope, $localStorage, $sessionStorage){});
+app.controller('HomeController', function($scope, $localStorage, $sessionStorage,$http){
+
+  $http({
+      method: 'GET',
+      url: '/dash/home'
+  })
+      .success(function(response){
+          $scope.message = response;
+          console.log('found projects')
+          console.log(response);
+      })
+      .error(function(response){
+          alert(response);
+          $location.path('/account/login');
+      }
+  );
+
+
+
+});
 
 app.controller('submitController', function($scope, $localStorage, $http, $sessionStorage, $location){
   // console.log("inside submit controller");
