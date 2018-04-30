@@ -264,7 +264,7 @@ app.post('/account/submit', function(req,res){
   req.checkBody('codevelopers', 'codevelopers is required').notEmpty();
   req.checkBody('InnovationTitle', 'InnovationTitle is required').notEmpty();
   req.checkBody('description', 'description is required').notEmpty();
-  req.checkBody('product', 'product is required').notEmpty();
+  //req.checkBody('product', 'product is required').notEmpty();
   req.checkBody('gitlink', 'gitlink is required').notEmpty();
   req.checkBody('component', 'component is required').notEmpty();
   req.checkBody('os', 'os is required').notEmpty();
@@ -277,7 +277,7 @@ app.post('/account/submit', function(req,res){
       CoSubmitters: req.body.CoSubmitters,
       InnovationTitle: req.body.InnovationTitle,
       Description: req.body.description,
-      Product: req.body.product,
+    //  Product: req.body.product,
       Component: req.body.component,
       OperatingSystem: req.body.os,
       GitLink: req.body.gitlink

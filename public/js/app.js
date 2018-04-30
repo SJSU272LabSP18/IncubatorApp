@@ -78,7 +78,7 @@ console.log($scope);
               'CoSubmitters':$scope.SubmitForm1.cosubmitter,
               'InnovationTitle':$scope.SubmitForm1.InnovationTitle,
               'description':$scope.SubmitForm1.description,
-              'product':$scope.SubmitForm1.product,
+            //  'product':$scope.SubmitForm1.product,
               'gitlink':$scope.SubmitForm1.gitlink,
               'component':$scope.SubmitForm1.component,
               'os':$scope.SubmitForm1.os
