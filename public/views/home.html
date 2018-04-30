@@ -8,44 +8,45 @@
             <div >
                 <h6 class="card-title">Total Projects</h6>
                 <p>{{message.length}}</p>
-                
+                <p> Innovation Title</p>
+              <ul>
+                    <li ng-repeat="mes in message">
+                   {{mes.InnovationTitle}}
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="col-6 col-sm-3 placeholders" style="max-width: 20">
             <div class="rounded-circle">
                 <h6 class="card-title">In Review</h6>
                 <p>672</p>
+                <p>GitHub Link </p>
+              <ul>
+                    <li ng-repeat="mes in message">
+                   <a href={{mes.GitLink}} target="_blank">{{mes.GitLink}}<a>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="col-6 col-sm-3 placeholders" style="max-width: 20">
             <div class="rounded-circle">
                 <h6 class="card-title">Under Consideration</h6>
                 <p>1050</p>
+                <p>Component </p>
+              <ul>
+                    <li ng-repeat="mes in message">
+                  {{mes.Component}}
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="col-6 col-sm-3 placeholders" style="max-width: 20">
-            <div class="rounded-circle">
-                <h6 class="card-title">Delivered</h6>
-
-                <p>50</p>
-            </div>
+        
         </div>
 
     </section>
 </div>
-<div class="row">
-    <div class="col-lg-6">
-        <img src="../assets/chart1.png"/></div>
-    <div class="col-lg-6">
-        <img src="../assets/chart2.png"/></div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-6">
-        <img src="../assets/chart3.png"/></div>
-    <div class="col-lg-6">
-        <img src="../assets/chart4.png"/></div>
-</div>
+
+
 </div>
 
 <!--/home.html-->

@@ -2,6 +2,7 @@
 
 var app = angular.module('MEANapp', ['ngRoute', 'ngStorage']);
 
+
 /*********************************
  Controllers
  *********************************/
@@ -33,15 +34,18 @@ app.controller('HeaderController', function($scope, $localStorage, $sessionStora
 });
 
 app.controller('HomeController', function($scope, $localStorage, $sessionStorage,$http){
-
+var vm=this;
   $http({
       method: 'GET',
       url: '/dash/home'
   })
       .success(function(response){
           $scope.message = response;
-          console.log('found projects')
-          console.log(response);
+          console.log("scope");
+
+          console.log($scope.message[0]._id)
+        //  console.log('found projects');
+          //console.log(response);
       })
       .error(function(response){
           alert(response);
