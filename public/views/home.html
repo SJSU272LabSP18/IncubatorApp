@@ -1,52 +1,112 @@
 <!--home.html-->
 
+<!--<div class="container">-->
+    <!--<section class="row text-center placeholders">-->
+        <!--<div class="col-6 col-sm-3 placeholders style="max-width: 20">-->
+            <!--<div>-->
+                <!--<h6 class="card-title">Total Projects</h6>-->
+                <!--<p>{{message.length}}</p>-->
+                <!--<p> Innovation Title</p>-->
+                <!--<ul>-->
+                    <!--<li ng-repeat="mes in message">-->
+                        <!--<a ng-href="#/dash/home/{{mes._id}}"  >   {{mes.InnovationTitle}}</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-6 col-sm-3 placeholders" style="max-width: 20">-->
+            <!--<div class="rounded-circle">-->
+                <!--<h6 class="card-title">In Review</h6>-->
+                <!--<p>672</p>-->
+                <!--<p>GitHub Link </p>-->
+                <!--<ul>-->
+                    <!--<li ng-repeat="mes in message">-->
+                        <!--<a href={{mes.GitLink}} target="_blank">{{mes.GitLink}}<a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-6 col-sm-3 placeholders" style="max-width: 20">-->
+            <!--<div class="rounded-circle">-->
+                <!--<h6 class="card-title">Under Consideration</h6>-->
+                <!--<p>1050</p>-->
+                <!--<p>Component </p>-->
+                <!--<ul>-->
+                    <!--<li ng-repeat="mes in message">-->
+                        <!--{{mes.Component}}-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
 
+    <!--</section>-->
+<!--</div>-->
 
 <div class="container">
     <section class="row text-center placeholders">
-        <div class="col-6 col-sm-3 placeholders style="max-width: 20">
-            <div >
+        <div class="card text-white bg-secondary col-6 col-sm-3 placeholders " style="max-width: 20rem;">
+            <div>
                 <h6 class="card-title">Total Projects</h6>
                 <p>{{message.length}}</p>
-                <p> Innovation Title</p>
-              <ul>
-                    <li ng-repeat="mes in message">
-              <a ng-href="#/dash/home/{{mes._id}}"  >   {{mes.InnovationTitle}}</a>
-                    </li>
-                </ul>
             </div>
         </div>
-        <div class="col-6 col-sm-3 placeholders" style="max-width: 20">
-            <div class="rounded-circle">
+        <div class="card text-white bg-secondary col-6 col-sm-3 offset-md-1 placeholders" style="max-width: 20">
+            <div>
                 <h6 class="card-title">In Review</h6>
                 <p>672</p>
-                <p>GitHub Link </p>
-              <ul>
-                    <li ng-repeat="mes in message">
-                   <a href={{mes.GitLink}} target="_blank">{{mes.GitLink}}<a>
-                    </li>
-                </ul>
             </div>
         </div>
-        <div class="col-6 col-sm-3 placeholders" style="max-width: 20">
+        <div class="card text-white bg-secondary col-6 col-sm-3 offset-md-1 placeholders" style="max-width: 40">
             <div class="rounded-circle">
                 <h6 class="card-title">Under Consideration</h6>
                 <p>1050</p>
-                <p>Component </p>
-              <ul>
-                    <li ng-repeat="mes in message">
-                  {{mes.Component}}
-                    </li>
-                </ul>
             </div>
         </div>
-
-        </div>
-
     </section>
+    <h2>Section Title</h2>
+    <div>
+        <table class="table table-active">
+            <thread>
+                <tr>
+                    <th class="InnovationTitle" scope="col" custom-sort order="'InnovationTitle'" sort="sort">Innovation Title&nbsp;</th>
+                    <th class="GitHubLink" scope="col" custom-sort order="'GitHubLink'" sort="sort">GitHub Link&nbsp;</th>
+                    <Th class="Component" scope="col" custom-sort order="'Component'" sort="sort">Component&nbsp;</Th>
+                </tr>
+            </thread>
+            <!--<pre>pagedItems.length: {{pagedItems.length|json}}</pre>-->
+            <!--<pre>currentPage: {{currentPage|json}}</pre>-->
+            <!--<pre>currentPage: {{sort|json}}</pre>-->
+            <tbody>
+                <tr class="table-secondary" ng-repeat="mes in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+                    <th scope="row">
+                        <a ng-href="#/dash/home/{{mes._id}}">{{mes.InnovationTitle}}</a>
+                    </th>
+                    <td>{{mes.GitLink}}</td>
+                    <td>{{mes.Component}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+            <td colspan="6">
+                <div class="pagination pull-right">
+                    <ul>
+                        <li ng-class="{disabled: currentPage == 0}">
+                            <a href ng-click="prevPage()">« Prev</a>
+                        </li>
+
+                        <li ng-repeat="n in range(pagedItems.length, currentPage, currentPage + gap) "
+                            ng-class="{active: n == currentPage}"
+                            ng-click="setPage()">
+                            <a href ng-bind="n + 1">1</a>
+                        </li>
+
+                        <li ng-class="{disabled: (currentPage) == pagedItems.length - 1}">
+                            <a href ng-click="nextPage()">Next »</a>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+            </tfoot>
+        </table>
+    </div>
 </div>
-
-
-</div>
-
 <!--/home.html-->
