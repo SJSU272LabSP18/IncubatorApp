@@ -28,7 +28,13 @@
 							<tbody>
 								<tr>
 									<td>Project Title:</td>
-									<td>{{message.InnovationTitle}}</td>
+									<td><div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div></td>
 								</tr>
 								<tr>
 									<td>Project ID:</td>
@@ -40,7 +46,7 @@
 								</tr>
 								<tr>
 									<td>Submission Date:</td>
-									<td>2 May 2018, 10:17 AM PST</td>
+									<td>{{message.DATE}}</td>
 								</tr>
 								<tr>
 									<td>Repository:</td>
@@ -80,11 +86,22 @@
 									<td>Operating System:</td>
 									<td>{{message.OperatingSystem}}</td>
 								</tr>
+								<tr>
+									<td><a href="#protected" role="button">Edit</a> Score:</td>
+
+									<td>{{message.Score}}</td>
+
+								</tr>
+
 							</tbody>
+
 						</table>
 					</div>
+
 				</div>
+
 			</div>
+
 		</div>
 		<footer>
 			<a class="btn btn-primary" href="#protected" role="button">TLT</a>

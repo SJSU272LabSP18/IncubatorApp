@@ -523,7 +523,11 @@ app.controller('reviewController', function($scope, $location, $http){
 
   
 });
+app.controller('dashboardController', function($scope, $location, $http){
 
+  
+
+});
 
 app.controller('ProtectedController', function($scope, $location, $http){
 
@@ -601,6 +605,11 @@ app.config(function($routeProvider) {
         when('/account/submit',{
              templateUrl: 'views/submit.html',
             controller: 'submitController'
+        }).
+
+        when('/account/dashboard',{
+             templateUrl: 'views/notifications.html',
+            controller: 'dashboardController'
         }).
 
         //Protected page

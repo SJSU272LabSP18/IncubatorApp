@@ -160,6 +160,16 @@ app.get('/dash/home', function (req, res){
 });
 });
 
+app.get('/account/dashboard', function (req, res){
+
+ 
+
+
+
+  //  res.sendfile('index.html');
+});
+
+
 //to get project by id
 
 app.get('/dash/home/:id', function (req, res){
@@ -452,6 +462,9 @@ function authorizeRequest(req, res, next) {
 }
 
 // Protected route requiring authorization to access.
+app.get('/account/dashboard', authorizeRequest, function(req, res){
+    
+});
 app.get('/protected', authorizeRequest, function(req, res){
     res.send("This is a protected route only visible to authenticated users.");
 });
