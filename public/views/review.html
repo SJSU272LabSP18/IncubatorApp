@@ -23,12 +23,12 @@
 						<table class="table-responsive table-light">
 							<tbody>
 								<tr>
-									<td>Title:</td>
-									<td>Project Title</td>
+									<td>Project Title:</td>
+									<td>{{message.InnovationTitle}}</td>
 								</tr>
 								<tr>
-									<td>ID:</td>
-									<td>123456</td>
+									<td>Project ID:</td>
+									<td>{{message._id}}</td>
 								</tr>
 								<tr>
 									<td>Status:</td>
@@ -41,12 +41,12 @@
 								<tr>
 									<td>Repository:</td>
 									<td>
-										<a href="https://github.com/SJSU272LabSP18/Project-Team-16/">https://github.com/SJSU272LabSP18/Project-Team-16/</a>
+										<a href={{message.GitLink}} target="_blank">{{message.GitLink}}</a>
 									</td>
 								</tr>
 								<tr>
 									<td>Description:</td>
-									<td>Lorem ipsum</td>
+									<td>{{message.Description}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -58,15 +58,23 @@
 							<tbody>
 								<tr>
 									<td>Submitter:</td>
-									<td>Team 16</td>
+									<td>{{message.Submitter}}</td>
+								</tr>
+								<tr>
+									<td>Co-Submitters:</td>
+									<td>{{message.CoSubmitters}}</td>
+								</tr>
+								<tr>
+									<td>Component</td>
+									<td>{{message.Component}}</td>
 								</tr>
 								<tr>
 									<td>Product:</td>
 									<td>Project Incubator</td>
 								</tr>
 								<tr>
-									<td>Brand:</td>
-									<td>Baron Industries</td>
+									<td>Operating System:</td>
+									<td>{{message.OperatingSystem}}</td>
 								</tr>
 							</tbody>
 						</table>
