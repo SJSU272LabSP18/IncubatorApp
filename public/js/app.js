@@ -502,6 +502,29 @@ app.controller('AccountController', function($scope, $localStorage, $sessionStor
     };
 });
 
+app.controller('reviewController', function($scope, $location, $http){
+
+      $http({
+        method: 'GET',
+        url: '/account/review',
+            data: {
+
+              'username': $scope.user.user.username,
+              'submitter':$scope.SubmitForm1.submitter,
+              'CoSubmitters':$scope.SubmitForm1.cosubmitter,
+              'InnovationTitle':$scope.SubmitForm1.InnovationTitle,
+              'description':$scope.SubmitForm1.description,
+            //  'product':$scope.SubmitForm1.product,
+              'gitlink':$scope.SubmitForm1.gitlink,
+              'component':$scope.SubmitForm1.component,
+              'os':$scope.SubmitForm1.os
+                }
+            })
+
+  
+});
+
+
 app.controller('ProtectedController', function($scope, $location, $http){
 
     $http({
@@ -569,6 +592,11 @@ app.config(function($routeProvider) {
             templateUrl: 'views/create_account.html',
             controller: 'CreateAccountController'
         }).
+
+        when('/account/review', {
+            templateUrl: 'views/review.html',
+            controller: 'reviewController'
+        }).
         // add project
         when('/account/submit',{
              templateUrl: 'views/submit.html',
@@ -580,5 +608,8 @@ app.config(function($routeProvider) {
             templateUrl: 'views/protected.html',
             controller: 'ProtectedController'
         });
+
+
+
 
 });
