@@ -187,9 +187,9 @@ var projectId=req.params.id;
 });
 
 
-app.get('/account/search', function (req, res){
-
-var name=req.body.searchtitle;
+app.get('/account/search/:temptitle', function (req, res){
+console.log("request:",req.body);
+var name=req.params.temptitle;
 console.log("name:",name);
 
 Projects.findOne({ InnovationTitle: name }, function(err, project) {
@@ -201,7 +201,7 @@ Projects.findOne({ InnovationTitle: name }, function(err, project) {
   }else{
 
   console.log("found project :");
-//  console.log(project)
+ console.log(project)
   res.json(project);
 
   }
@@ -322,7 +322,7 @@ app.post('/account/submit', function(req,res){
   req.checkBody('component', 'component is required').notEmpty();
   req.checkBody('os', 'os is required').notEmpty();
 
-
+console.log("inside submit:",req.body);
 
   var project = new Projects({
       UserName: req.body.username,

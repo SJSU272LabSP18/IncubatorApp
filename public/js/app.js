@@ -202,43 +202,42 @@ app.directive("customSort", function( $scope) {
 
 
 
-// app.controller('SearchController', function($scope, $localStorage, $sessionStorage,$http,$location){
-//
-//
-//   // console.log("scope user");
-//   console.log($scope.user);
-//   // console.log("scope submit form");
-//   // console.log($scope.submitForm);
-//
-// console.log("temp title:",temptitle);
-//   $scope.submitTitle = function(){
-// $scope.user = $localStorage;
-// console.log($scope.user);
-// var temptitle=$scope.SubmitTitleForm.searchtitle;
-//   $http({
-//       method: 'GET',
-//       url: '/account/search',
-//       data: {
-//
-//         'searchtitle':$scope.SubmitTitleForm.searchtitle
-//           }
-//   })
-//   .success(function(response){
-//       $scope.message = response;
-//       $location.path('/account/search');
-//     //  console.log('found projects');
-//       //console.log(response);
-//   })
-//   .error(function(response){
-//       alert(response);
-//       $location.path('/');
-//   }
-// );
-//
-//
-//
-// }
-// });
+app.controller('SearchController', function($scope, $localStorage, $sessionStorage,$http,$location){
+
+  $scope.user = $localStorage;
+  //console.log("inside search controller");
+//  console.log($scope.user);
+  // console.log("scope user");
+//  console.log("title");
+  //console.log($scope.SubmitSearchForm1.searchtitle);
+  // console.log("scope submit form");
+  // console.log($scope.submitForm);
+
+//console.log("temp title:",temptitle);
+  $scope.submitTitle = function(){
+console.log("title to search:",$scope.SubmitSearchForm1.searchtitle);
+var temptitle=$scope.SubmitSearchForm1.searchtitle;
+  $http({
+      method: 'GET',
+      url: '/account/search/'+ temptitle
+
+  })
+  .success(function(response){
+      $scope.message = response;
+      $location.path('/account/search');
+    //  console.log('found projects');
+      //console.log(response);
+  })
+  .error(function(response){
+      alert(response);
+      $location.path('/');
+  }
+);
+
+
+
+}
+});
 
 
 
@@ -278,6 +277,7 @@ id=$routeParams.id
 app.controller('submitController',function($scope, $localStorage, $http, $sessionStorage, $location){
   // console.log("inside submit controller");
   $scope.user = $localStorage;
+  console.log("score for submit:",$scope.user)
   // console.log("scope user");
 // console.log($scope.user.user.username);
   // console.log("scope submit form");
@@ -285,7 +285,7 @@ app.controller('submitController',function($scope, $localStorage, $http, $sessio
 
 $scope.submitRegister = function(){
 
-
+console.log("submitter:",$scope.SubmitForm1.submitter);
 //console.log('inside controller');
 //console.log($scope);
 
@@ -543,6 +543,11 @@ app.config(function($routeProvider) {
         when('/dash/home/:id', {
             templateUrl: 'views/project.html',
             controller: 'ProjectController'
+        }).
+
+        when('/account/search', {
+            templateUrl: 'views/search.html',
+            controller: 'SearchController'
         }).
 
 

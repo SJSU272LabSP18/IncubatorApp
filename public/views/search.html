@@ -1,1 +1,22 @@
-<p>{{message}}</p>
+<!--submit.html-->
+<div>
+
+    <div>
+        <form autocomplete="on" ng-submit="submitTitle()" name="SubmitSearchForm">
+            <fieldset>
+                <legend class="text-white">Project Sign Up</legend>
+                <div class="form-group">
+                    <label class="col-form-label text-white" for="Submitter">InnovationTitle</label>
+                    <input type="text" id="Submitter" class="form-control" name="searchtitle" placeholder="Enter Submitter" ng-model="SubmitSearchForm1.searchtitle" required>
+
+
+                    <button type="submit" class="btn btn-primary"> Search</button>
+     <p>{{message}}</p>
+                </div>
+
+
+
+            </fieldset>
+        </form>
+    </div>
+</div>
