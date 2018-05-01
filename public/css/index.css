@@ -9,19 +9,18 @@ html, body{
 	background-color: #2a618e;
 	margin: 0;
 }
-<<<<<<< HEAD
 #sidebar-container{
 	background-color: #2a618e;
 }
 .list-group{
 	margin: 0;
 }
-.list-group-item{
+.list-group-item {
 	background-color: #3779a5;
 	color: #fbfbfb;
-=======
+}
 
 .text-help{
-	color: #c2c6c4
->>>>>>> WIP
+	color: #c2c6c4;
+
 }

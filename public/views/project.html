@@ -1,62 +1,87 @@
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="container">
-    <h1 class="well">Registration Form</h1>
-	<div class="col-lg-12 well">
-	<div class="row">
-				<form>
-					<div class="col-sm-12">
-						<div class="row">
-							<div class="col-sm-6 form-group">
-								<label>Project ID</label>
-                <p>{{message._id}}</p>
-
-							</div>
-							<div class="col-sm-6 form-group">
-								<label>Innovation Title</label>
-                <p>{{message.InnovationTitle}}</p>
-
-							</div>
-						</div>
-						<div class="form-group">
-							<label>Submitter</label>
-							<p>{{message.Submitter}}</p>
-						</div>
-						<div class="row">
-							<div class="col-sm-4 form-group">
-								<label>CoSubmitters</label>
-                <p>{{message.CoSubmitters}}</p>
-
-							</div>
-							<div class="col-sm-4 form-group">
-								<label>Description</label>
-								<p>{{message.Description}}</p>
-							</div>
-							<div class="col-sm-4 form-group">
-								<label>Component</label>
-								<p>{{message.Component}}</p>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6 form-group">
-								<label>GitLink</label>
-								<a href={{message.GitLink}} target="_blank">{{message.GitLink}}<a>
-							</div>
-							<div class="col-sm-6 form-group">
-								<label>OperatingSystem</label>
-								<p>{{message.OperatingSystem}}</p>
-							</div>
-						</div>
-
-
-
-
-					</div>
-				</form>
+<link rel="stylesheet" href="../css/review.css">
+<div ng-app="MEANapp">
+	<div class="container">
+		<div class="row">
+			<h2 class="text-white">Reviews &amp; Status</h2>
+		</div>
+		<div class="row text-white">
+			<p>Some meaningless drivel</p>
+		</div>
+		<div class="jumbotron">
+			<div class="row justify-content-center">
+				<h2>Detailed Summary</h2>
+			</div>
+			<div class="progress">
+				<div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
 				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-7">
+					<div class="table">
+						<table class="table-responsive table-light">
+							<tbody>
+								<tr>
+									<td>Project Title:</td>
+									<td>{{message.InnovationTitle}}</td>
+								</tr>
+								<tr>
+									<td>Project ID:</td>
+									<td>{{message._id}}</td>
+								</tr>
+								<tr>
+									<td>Status:</td>
+									<td>Under Consideration</td>
+								</tr>
+								<tr>
+									<td>Submission Date:</td>
+									<td>2 May 2018, 10:17 AM PST</td>
+								</tr>
+								<tr>
+									<td>Repository:</td>
+									<td>
+										<a href={{message.GitLink}} target="_blank">{{message.GitLink}}</a>
+									</td>
+								</tr>
+								<tr>
+									<td>Description:</td>
+									<td>{{message.Description}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="table">
+						<table class="table-responsive table-light">
+							<tbody>
+								<tr>
+									<td>Submitter:</td>
+									<td>{{message.Submitter}}</td>
+								</tr>
+								<tr>
+									<td>Co-Submitters:</td>
+									<td>{{message.CoSubmitters}}</td>
+								</tr>
+								<tr>
+									<td>Component</td>
+									<td>{{message.Component}}</td>
+								</tr>
+								<tr>
+									<td>Product:</td>
+									<td>Project Incubator</td>
+								</tr>
+								<tr>
+									<td>Operating System:</td>
+									<td>{{message.OperatingSystem}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<a class="btn btn-primary" href="#protected" role="button">TLT</a>
+		</footer>
 	</div>
-	</div>
+</div>
