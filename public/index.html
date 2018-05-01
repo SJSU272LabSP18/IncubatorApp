@@ -11,7 +11,7 @@
 
 </head>
 <body ng-app="MEANapp">
-  
+
         <nav class="navbar navbar-expand-lg navbar-dark" ng-controller="HeaderController">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation" style="">
                 <!--<img class="img-fluid" src="assets/logo_dark.png" height="30" width="30"/>-->
@@ -43,9 +43,9 @@
                         <a class="nav-link" href=''  ng-show="user.status">Welcome: {{user.user.username}}</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <buttom class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</buttom>
+                <form class="form-inline my-2 my-lg-0"  name="SubmitTitleForm" ng-submit="submitTitle()" >
+                    <input class="form-control mr-sm-2" name="searchtitle" type="search" placeholder="Search" aria-label="Search">
+                    <buttom class="btn btn-outline-success my-2 my-sm-0" href="#/account/search"  type="submit">Search</buttom>
                 </form>
             </div>
         </nav>

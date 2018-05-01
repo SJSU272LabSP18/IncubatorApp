@@ -148,7 +148,7 @@ app.get('/dash/home', function (req, res){
     }else{
 
       console.log("found projects :",projects.length);
-      console.log(projects)
+    //  console.log(projects)
       res.json(projects);
 
     }
@@ -160,12 +160,12 @@ app.get('/dash/home', function (req, res){
 });
 });
 
-
+//to get project by id
 
 app.get('/dash/home/:id', function (req, res){
 var projectId=req.params.id;
-console.log("req.params");
-console.log(req.params)
+//console.log("req.params");
+//console.log(req.params)
   Projects.findById(projectId).exec(function(err,project){
       if(err){
       console.log("error finding the project");
@@ -174,7 +174,7 @@ console.log(req.params)
     }else{
 
       console.log("found project :");
-      console.log(project)
+    //  console.log(project)
       res.json(project);
 
     }
@@ -187,7 +187,27 @@ console.log(req.params)
 });
 
 
+app.get('/account/search', function (req, res){
 
+var name=req.body.searchtitle;
+console.log("name:",name);
+
+Projects.findOne({ InnovationTitle: name }, function(err, project) {
+
+  if(err){
+  console.log("error finding the project");
+  res.status(500).json(err)
+
+  }else{
+
+  console.log("found project :");
+//  console.log(project)
+  res.json(project);
+
+  }
+
+});
+});
 
 
 

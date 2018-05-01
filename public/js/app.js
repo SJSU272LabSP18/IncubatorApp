@@ -11,8 +11,8 @@ app.controller('HeaderController', function($scope, $localStorage, $sessionStora
 
     // Set local scope to persisted user data
     $scope.user = $localStorage;
-    // console.log("scope user");
-    // console.log($scope.user.user);
+    // console.log("scope");
+  //   console.log($scope);
 
     // Logout function
     $scope.logout = function(){
@@ -31,7 +31,16 @@ app.controller('HeaderController', function($scope, $localStorage, $sessionStora
             }
         );
     };
+
+    
+
 });
+
+
+
+
+
+
 
 app.controller('HomeController', function($scope, $localStorage, $sessionStorage,$http){
 
@@ -41,9 +50,9 @@ app.controller('HomeController', function($scope, $localStorage, $sessionStorage
   })
       .success(function(response){
           $scope.message = response;
-          console.log("scope");
+        //  console.log("scope");
 
-          console.log($scope.message[0]._id)
+        //  console.log($scope.message[0]._id)
         //  console.log('found projects');
           //console.log(response);
       })
@@ -59,11 +68,54 @@ app.controller('HomeController', function($scope, $localStorage, $sessionStorage
 
 
 
+
+// app.controller('SearchController', function($scope, $localStorage, $sessionStorage,$http,$location){
+//
+//
+//   // console.log("scope user");
+//   console.log($scope.user);
+//   // console.log("scope submit form");
+//   // console.log($scope.submitForm);
+//
+// console.log("temp title:",temptitle);
+//   $scope.submitTitle = function(){
+// $scope.user = $localStorage;
+// console.log($scope.user);
+// var temptitle=$scope.SubmitTitleForm.searchtitle;
+//   $http({
+//       method: 'GET',
+//       url: '/account/search',
+//       data: {
+//
+//         'searchtitle':$scope.SubmitTitleForm.searchtitle
+//           }
+//   })
+//   .success(function(response){
+//       $scope.message = response;
+//       $location.path('/account/search');
+//     //  console.log('found projects');
+//       //console.log(response);
+//   })
+//   .error(function(response){
+//       alert(response);
+//       $location.path('/');
+//   }
+// );
+//
+//
+//
+// }
+// });
+
+
+
+
+
 app.controller('ProjectController', function($scope, $location, $http,$localStorage,$routeParams){
 
 id=$routeParams.id
-console.log("routeparams");
-console.log(id)
+//console.log("routeparams");
+//console.log(id)
 
   $http({
       method: 'GET',
@@ -71,7 +123,7 @@ console.log(id)
   })
       .success(function(response){
           $scope.message = response;
-          
+
         //  console.log('found projects');
           //console.log(response);
       })
@@ -94,15 +146,15 @@ app.controller('submitController', function($scope, $localStorage, $http, $sessi
   // console.log("inside submit controller");
   $scope.user = $localStorage;
   // console.log("scope user");
- console.log($scope.user.user.username);
+// console.log($scope.user.user.username);
   // console.log("scope submit form");
   // console.log($scope.submitForm);
 
 $scope.submitRegister = function(){
 
 
-console.log('inside controller');
-console.log($scope);
+//console.log('inside controller');
+//console.log($scope);
 
         // Login request
         $http({
@@ -125,8 +177,8 @@ console.log($scope);
                 // $localStorage persists data in browser's local storage (prevents data loss on page refresh)
                 //$localStorage.status = true;
                 //$localStorage.user = response;
-                console.log($localStorage);
-                console.log($location);
+                //console.log($localStorage);
+                //console.log($location);
                 alert('Project added successfully.');
                 $location.path('/');
             })
@@ -151,7 +203,7 @@ app.controller('LoginController', function($scope, $localStorage, $sessionStorag
     // Login submission
     $scope.submitLogin = function(){
 
-        console.log($scope);
+      //  console.log($scope);
 
         // Login request
         $http({
@@ -354,11 +406,16 @@ app.config(function($routeProvider) {
             controller: 'HomeController'
         }).
 
-
+        //get project based on id
         when('/dash/home/:id', {
             templateUrl: 'views/project.html',
             controller: 'ProjectController'
         }).
+        // when('/account/search', {
+        //     templateUrl: 'index.html',
+        //     controller: 'SearchController'
+        // }).
+
 
         //Login page
         when('/account/login', {
