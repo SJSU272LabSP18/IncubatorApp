@@ -160,6 +160,39 @@ app.get('/dash/home', function (req, res){
 });
 });
 
+
+
+app.get('/dash/home/:id', function (req, res){
+var projectId=req.params.id;
+console.log("req.params");
+console.log(req.params)
+  Projects.findById(projectId).exec(function(err,project){
+      if(err){
+      console.log("error finding the project");
+      res.status(500).json(err)
+
+    }else{
+
+      console.log("found project :");
+      console.log(project)
+      res.json(project);
+
+    }
+
+
+
+
+  //  res.sendfile('index.html');
+});
+});
+
+
+
+
+
+
+
+
 // Account login
 app.post('/account/login', function(req,res){
 

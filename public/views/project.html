@@ -1,0 +1,62 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <h1 class="well">Registration Form</h1>
+	<div class="col-lg-12 well">
+	<div class="row">
+				<form>
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Project ID</label>
+                <p>{{message._id}}</p>
+
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>Innovation Title</label>
+                <p>{{message.InnovationTitle}}</p>
+
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Submitter</label>
+							<p>{{message.Submitter}}</p>
+						</div>
+						<div class="row">
+							<div class="col-sm-4 form-group">
+								<label>CoSubmitters</label>
+                <p>{{message.CoSubmitters}}</p>
+
+							</div>
+							<div class="col-sm-4 form-group">
+								<label>Description</label>
+								<p>{{message.Description}}</p>
+							</div>
+							<div class="col-sm-4 form-group">
+								<label>Component</label>
+								<p>{{message.Component}}</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>GitLink</label>
+								<a href={{message.GitLink}} target="_blank">{{message.GitLink}}<a>
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>OperatingSystem</label>
+								<p>{{message.OperatingSystem}}</p>
+							</div>
+						</div>
+
+
+
+
+					</div>
+				</form>
+				</div>
+	</div>
+	</div>

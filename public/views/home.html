@@ -11,7 +11,7 @@
                 <p> Innovation Title</p>
               <ul>
                     <li ng-repeat="mes in message">
-                   {{mes.InnovationTitle}}
+              <a ng-href="#/dash/home/{{mes._id}}"  >   {{mes.InnovationTitle}}</a>
                     </li>
                 </ul>
             </div>
@@ -40,7 +40,7 @@
                 </ul>
             </div>
         </div>
-        
+
         </div>
 
     </section>

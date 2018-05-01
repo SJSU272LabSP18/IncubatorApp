@@ -34,7 +34,7 @@ app.controller('HeaderController', function($scope, $localStorage, $sessionStora
 });
 
 app.controller('HomeController', function($scope, $localStorage, $sessionStorage,$http){
-var vm=this;
+
   $http({
       method: 'GET',
       url: '/dash/home'
@@ -56,6 +56,39 @@ var vm=this;
 
 
 });
+
+
+
+app.controller('ProjectController', function($scope, $location, $http,$localStorage,$routeParams){
+
+id=$routeParams.id
+console.log("routeparams");
+console.log(id)
+
+  $http({
+      method: 'GET',
+      url: '/dash/home/'+id
+  })
+      .success(function(response){
+          $scope.message = response;
+          
+        //  console.log('found projects');
+          //console.log(response);
+      })
+      .error(function(response){
+          alert(response);
+          $location.path('/account/login');
+      }
+  );
+
+
+
+
+
+});
+
+
+
 
 app.controller('submitController', function($scope, $localStorage, $http, $sessionStorage, $location){
   // console.log("inside submit controller");
@@ -301,6 +334,12 @@ app.controller('ProtectedController', function($scope, $location, $http){
 
 });
 
+
+
+
+
+
+
 /*********************************
  Routing
  *********************************/
@@ -313,6 +352,12 @@ app.config(function($routeProvider) {
         when('/', {
             templateUrl: 'views/home.html',
             controller: 'HomeController'
+        }).
+
+
+        when('/dash/home/:id', {
+            templateUrl: 'views/project.html',
+            controller: 'ProjectController'
         }).
 
         //Login page
