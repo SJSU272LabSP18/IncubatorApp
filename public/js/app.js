@@ -28,25 +28,14 @@ app.controller('HeaderController', function($scope, $localStorage, $sessionStora
             .error(function(response){
                 alert(response);
                 $location.path('/account/login');
-            }
-        );
-    };
+            });
 
-    
-
+    }
 });
 
-<<<<<<< HEAD
 
-
-
-
-
-
-app.controller('HomeController', function($scope, $localStorage, $sessionStorage,$http){
-=======
 app.controller('HomeController', function($scope, $localStorage, $sessionStorage,$http, $filter){
->>>>>>> 76eb2f7784487a8ff8948a410f189315a1dbb183
+
 
   $http({
       method: 'GET',
@@ -56,10 +45,10 @@ app.controller('HomeController', function($scope, $localStorage, $sessionStorage
           $scope.message = response;
         //  console.log("scope");
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
         //  console.log($scope.message[0]._id)
         //  console.log('found projects');
-=======
+//=======
           console.log($scope.message[0]._id)
 
           $scope.sort = {
@@ -153,14 +142,13 @@ app.controller('HomeController', function($scope, $localStorage, $sessionStorage
           $scope.search();
 
           //  console.log('found projects');
->>>>>>> 76eb2f7784487a8ff8948a410f189315a1dbb183
+//>>>>>>> 76eb2f7784487a8ff8948a410f189315a1dbb183
           //console.log(response);
       })
       .error(function(response){
           alert(response);
           $location.path('/account/login');
-      }
-  );
+      });
 
 
 
@@ -168,7 +156,7 @@ app.controller('HomeController', function($scope, $localStorage, $sessionStorage
 
 });
 
-app.directive("customSort", function() {
+app.directive("customSort", function( $scope) {
     return {
         restrict: 'A',
         transclude: true,
@@ -184,8 +172,8 @@ app.directive("customSort", function() {
         link: function(scope) {
 
             // change sorting order
-            scope.sort_by = function(newSortingOrder) {
-                var sort = scope.sort;
+            $scope.sort_by = function(newSortingOrder) {
+                var sort = $scope.sort;
 
                 if (sort.sortingOrder == newSortingOrder){
                     sort.reverse = !sort.reverse;
@@ -195,9 +183,9 @@ app.directive("customSort", function() {
             };
 
 
-            scope.selectedCls = function(column) {
-                if(column == scope.sort.sortingOrder){
-                    return ('icon-chevron-' + ((scope.sort.reverse) ? 'down' : 'up'));
+            $scope.selectedCls = function(column) {
+                if(column == $scope.sort.sortingOrder){
+                    return ('icon-chevron-' + (($scope.sort.reverse) ? 'down' : 'up'));
                 }
                 else{
                     return'icon-sort'
@@ -287,7 +275,7 @@ id=$routeParams.id
 
 
 
-app.controller('submitController', function($scope, $localStorage, $http, $sessionStorage, $location){
+app.controller('submitController',function($scope, $localStorage, $http, $sessionStorage, $location){
   // console.log("inside submit controller");
   $scope.user = $localStorage;
   // console.log("scope user");
@@ -556,10 +544,7 @@ app.config(function($routeProvider) {
             templateUrl: 'views/project.html',
             controller: 'ProjectController'
         }).
-        // when('/account/search', {
-        //     templateUrl: 'index.html',
-        //     controller: 'SearchController'
-        // }).
+
 
 
         //Login page
