@@ -210,28 +210,6 @@ Projects.findOne({ InnovationTitle: name }, function(err, project) {
 });
 
 
-app.get('/account/review/:temptitle', function (req, res){
-console.log("request:",req.body);
-var name=req.params.temptitle;
-console.log("name:",name);
-
-Projects.findOne({ InnovationTitle: name }, function(err, project) {
-
-  if(err){
-  console.log("error finding the project");
-  res.status(500).json(err)
-
-  }else{
-
-  console.log("found project :");
- console.log(project)
-  res.json(project);
-
-  }
-
-});
-});
-
 
 
 
