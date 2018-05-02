@@ -38,7 +38,22 @@ const ProjectSchema = new mongoose.Schema({
   GitLink: {
     type: String,
     default: ''
-  }
+  },
+  TotalVotes:{
+type: Number,
+default:0
+
+},
+VoteSum:{
+
+  type:Number,
+  default:0
+},
+VoteMean:{
+
+  type:Number,
+  default:0
+}
 
 });
 

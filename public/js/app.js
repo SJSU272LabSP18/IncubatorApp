@@ -43,13 +43,13 @@ app.controller('HomeController', function($scope, $localStorage, $sessionStorage
   })
       .success(function(response){
           $scope.message = response;
-        //  console.log("scope");
+          //console.log("scope");
 
 //<<<<<<< HEAD
         //  console.log($scope.message[0]._id)
         //  console.log('found projects');
 //=======
-          console.log($scope.message[0]._id)
+          //console.log($scope.message[0]._id)
 
           $scope.sort = {
               sortingOrder : 'Submitter',
@@ -245,8 +245,59 @@ var temptitle=$scope.SubmitSearchForm1.searchtitle;
 }
 });
 
+//VoteSubmitController
+
+app.controller('VoteSubmitController', function($scope, $location, $http,$localStorage,$routeParams){
+
+  id=$routeParams.id
+  //console.log("routeparams");
+  //console.log(id)
+
+    $http({
+        method: 'GET',
+        url: '/dash/home/'+id
+    })
+        .success(function(response){
+            $scope.message = response;
+
+          //  console.log('found projects');
+            //console.log(response);
+        })
+        .error(function(response){
+            alert(response);
+            $location.path('/account/login');
+        });
+
+$scope.submitVote=function(){
+console.log("inside VoteSubmitController:",$scope.SubmitVote1.vote);
+console.log("id:",$scope.message._id);
+$http({
+    method: 'POST',
+    url: '/dash/project/',
+
+    data:{
+      'id':$scope.message._id,
+      'vote':$scope.SubmitVote1.vote
+
+    }
+})
+    .success(function(response){
+        $scope.message = response;
+     alert("Rating Submitted successfully");
+     $location.path('/dash/project')
+      //  console.log('found projects');
+        //console.log(response);
+    })
+    .error(function(response){
+        alert(response);
+        $location.path('/account/login');
+    });
 
 
+}
+
+
+});
 
 
 app.controller('ProjectController', function($scope, $location, $http,$localStorage,$routeParams){
@@ -276,6 +327,127 @@ id=$routeParams.id
 
 
 });
+
+
+
+app.controller('VoteController',function($scope, $localStorage, $http, $sessionStorage, $location,$filter){
+
+  $http({
+      method: 'GET',
+      url: '/dash/home'
+  })
+      .success(function(response){
+          $scope.message = response;
+          console.log("response from VoteController",response);
+
+  //<<<<<<< HEAD
+        //  console.log($scope.message[0]._id)
+        //  console.log('found projects');
+  //=======
+          console.log($scope.message[0]._id)
+
+          $scope.sort = {
+              sortingOrder : 'Submitter',
+              reverse : false
+          };
+
+          // init
+
+          $scope.gap = 1;
+
+          $scope.filteredItems = [];
+          $scope.groupedItems = [];
+          $scope.itemsPerPage = 5;
+          $scope.pagedItems = [];
+          $scope.currentPage = 0;
+          $scope.items = $scope.message;
+
+
+          var searchMatch = function (haystack, needle) {
+              if (!needle) {
+                  return true;
+              }
+              return haystack.toLowerCase().indexOf(needle.toLowerCase()) !== -1;
+          };
+
+          // init the filtered items
+          $scope.search = function () {
+              $scope.filteredItems = $filter('filter')($scope.items, function (item) {
+                  for(var attr in item) {
+                      if (searchMatch(item[attr], $scope.query))
+                          return true;
+                  }
+                  return false;
+              });
+              // take care of the sorting order
+              if ($scope.sort.sortingOrder !== '') {
+                  $scope.filteredItems = $filter('orderBy')($scope.filteredItems, $scope.sort.sortingOrder, $scope.sort.reverse);
+              }
+              $scope.currentPage = 0;
+              // now group by pages
+              $scope.groupToPages();
+          };
+
+
+          // calculate page in place
+          $scope.groupToPages = function () {
+              $scope.pagedItems = [];
+
+              for (var i = 0; i < $scope.filteredItems.length; i++) {
+                  if (i % $scope.itemsPerPage === 0) {
+                      $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [ $scope.filteredItems[i] ];
+                  } else {
+                      $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.filteredItems[i]);
+                  }
+              }
+          };
+
+          $scope.range = function (size,start, end) {
+              var ret = [];
+              console.log(size,start, end);
+
+              if (size < end) {
+                  end = size;
+                  start = size-$scope.gap;
+              }
+              for (var i = start; i < end; i++) {
+                  ret.push(i);
+              }
+              console.log(ret);
+              return ret;
+          };
+
+          $scope.prevPage = function () {
+              if ($scope.currentPage > 0) {
+                  $scope.currentPage--;
+              }
+          };
+
+          $scope.nextPage = function () {
+              if ($scope.currentPage < $scope.pagedItems.length - 1) {
+                  $scope.currentPage++;
+              }
+          };
+
+          $scope.setPage = function () {
+              $scope.currentPage = this.n;
+          };
+
+          // functions have been describe process the data for display
+          $scope.search();
+
+          //  console.log('found projects');
+  //>>>>>>> 76eb2f7784487a8ff8948a410f189315a1dbb183
+          //console.log(response);
+      })
+      .error(function(response){
+          alert(response);
+          $location.path('/account/login');
+      });
+
+
+});
+
 
 
 
@@ -578,6 +750,15 @@ app.config(function($routeProvider) {
             controller: 'ProjectController'
         }).
 
+
+        when('/dash/project/:id', {
+            templateUrl: 'views/vote.html',
+            controller: 'VoteSubmitController'
+        }).
+        when('/dash/project', {
+            templateUrl: 'views/home1.html',
+            controller: 'VoteController'
+        }).
         when('/account/search', {
             templateUrl: 'views/search.html',
             controller: 'SearchController'

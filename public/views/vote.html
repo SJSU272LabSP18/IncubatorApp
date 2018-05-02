@@ -78,14 +78,22 @@
 								</tr>
 								<tr>
 									<td>Vote:</td>
-									<td><div class="form-group">
-									  <select class="form-control">
+									<td>
+
+										<div class="form-group">
+
+										<form  ng-submit="submitVote()" name="SubmitVote">
+
+											  
+									  <select class="form-control" name="vote" ng-model="SubmitVote1.vote">
 									    <option>1</option>
 									    <option>2</option>
 									    <option>3</option>
 									    <option>4</option>
 									    <option>5</option>
 									  </select>
+<button type="submit" class="btn btn-primary">Submit Vote </button>
+									</form>
 									</div></td>
 
 								</tr>

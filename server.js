@@ -162,12 +162,56 @@ app.get('/dash/home', function (req, res){
 
 app.get('/account/dashboard', function (req, res){
 
- 
+
 
 
 
   //  res.sendfile('index.html');
 });
+
+
+
+app.post('/dash/project',function (req, res){
+  var projectId=req.body.id;
+  Projects.findById(projectId).exec(function(err,project){
+      if(err){
+      console.log("error finding the project");
+      res.status(500).json(err)
+
+    }else{
+
+      console.log("found project :");
+      console.log(project);
+      console.log("des",project.Description);
+      var sum=parseInt(project.VoteSum) + parseInt(req.body.vote);
+      var votes=project.TotalVotes +1;
+      var mean=sum/votes;
+      Projects.update({_id:projectId},{$set: {VoteSum:sum,TotalVotes:votes,VoteMean:mean}},function(err, result){
+
+if(err){
+
+  console.log("error updating details");
+  console.log(err);
+  res.status(500).json(err)
+}
+else{
+  console.log("result of update",result);
+  res.json(result);
+}
+
+      })
+
+    //  res.json(project);
+
+    }
+
+
+});
+});
+
+
+
+
 
 
 //to get project by id
@@ -463,7 +507,7 @@ function authorizeRequest(req, res, next) {
 
 // Protected route requiring authorization to access.
 app.get('/account/dashboard', authorizeRequest, function(req, res){
-    
+
 });
 app.get('/protected', authorizeRequest, function(req, res){
     res.send("This is a protected route only visible to authenticated users.");

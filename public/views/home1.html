@@ -71,7 +71,6 @@
                     <th class="InnovationTitle" scope="col" custom-sort order="'InnovationTitle'" sort="sort">Innovation Title&nbsp;</th>
                     <th class="GitHubLink" scope="col" custom-sort order="'GitHubLink'" sort="sort">GitHub Link&nbsp;</th>
                     <th class="Component" scope="col" custom-sort order="'Component'" sort="sort">Component&nbsp;</Th>
-                      <th class="Component" scope="col" custom-sort order="'Component'" sort="sort">Rating&nbsp;</Th>
                 </tr>
             </thread>
             <!--<pre>pagedItems.length: {{pagedItems.length|json}}</pre>-->
@@ -80,13 +79,12 @@
             <tbody>
                 <tr class="table" ng-repeat="mes in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
                     <td scope="row">
-                        <a ng-href="#/dash/home/{{mes._id}}">{{mes.InnovationTitle}}</a>
+                        <a ng-href="#/dash/project/{{mes._id}}">{{mes.InnovationTitle}}</a>
                     </td>
                     <td>
                       <a href={{mes.GitLink}} target "_blank">{{mes.GitLink}}</a>
                     </td>
                     <td>{{mes.Component}}</td>
-                    <td>{{mes.VoteMean}}</td>
                 </tr>
             </tbody>
             <tfoot>
