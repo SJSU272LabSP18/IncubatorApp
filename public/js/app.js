@@ -223,8 +223,14 @@ var temptitle=$scope.SubmitSearchForm1.searchtitle;
 
   })
   .success(function(response){
+    if (response==null){
+
+      alert("project not found");
+    }
+    else{
       $scope.message = response;
       $location.path('/account/search');
+    }
     //  console.log('found projects');
       //console.log(response);
   })
@@ -521,11 +527,11 @@ app.controller('reviewController', function($scope, $location, $http){
                 }
             })
 
-  
+
 });
 app.controller('dashboardController', function($scope, $location, $http){
 
-  
+
 
 });
 

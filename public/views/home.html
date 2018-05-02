@@ -53,13 +53,13 @@
         <div class="card text-white col-6 col-sm-3 offset-md-1 placeholders" style="max-width: 20">
             <div>
                 <h6 class="card-title">In Review</h6>
-                <p>672</p>
+                <p>10</p>
             </div>
         </div>
         <div class="card text-white col-6 col-sm-3 offset-md-1 placeholders" style="max-width: 40">
             <div class="rounded-circle">
                 <h6 class="card-title">Under Consideration</h6>
-                <p>1050</p>
+                <p>12</p>
             </div>
         </div>
     </section>
@@ -81,7 +81,9 @@
                     <td scope="row">
                         <a ng-href="#/dash/home/{{mes._id}}">{{mes.InnovationTitle}}</a>
                     </td>
-                    <td><a href={{mes.GitLink}}>{{mes.GitLink}}</a></td>
+                    <td>
+                      <a href={{mes.GitLink}} target "_blank">{{mes.GitLink}}</a>
+                    </td>
                     <td>{{mes.Component}}</td>
                 </tr>
             </tbody>
