@@ -43,22 +43,19 @@ app.controller('HomeController', function($scope, $localStorage, $sessionStorage
   })
       .success(function(response){
           $scope.message = response;
-          //console.log("scope");
 
-//<<<<<<< HEAD
-        //  console.log($scope.message[0]._id)
-        //  console.log('found projects');
-//=======
-          //console.log($scope.message[0]._id)
-
+          // init
           $scope.sort = {
               sortingOrder : 'Submitter',
               reverse : false
-          };
-
-          // init
+                };
 
           $scope.gap = 1;
+
+          // num_pages = Math.ceil($scope.message.length/$scope.itemsPerPage);
+          // if(num_pages < $scope.gap){
+          //     $scope.gap = num_pages;
+          // }
 
           $scope.filteredItems = [];
           $scope.groupedItems = [];
@@ -66,6 +63,8 @@ app.controller('HomeController', function($scope, $localStorage, $sessionStorage
           $scope.pagedItems = [];
           $scope.currentPage = 0;
           $scope.items = $scope.message;
+
+
 
 
           var searchMatch = function (haystack, needle) {
@@ -141,18 +140,12 @@ app.controller('HomeController', function($scope, $localStorage, $sessionStorage
           // functions have been describe process the data for display
           $scope.search();
 
-          //  console.log('found projects');
-//>>>>>>> 76eb2f7784487a8ff8948a410f189315a1dbb183
-          //console.log(response);
       })
+
       .error(function(response){
           alert(response);
           $location.path('/account/login');
       });
-
-
-
-
 
 });
 
