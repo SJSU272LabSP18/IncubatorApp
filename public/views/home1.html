@@ -50,13 +50,13 @@
                 <p>{{message.length}}</p>
             </div>
         </div>
-        <div class="card text-white col-6 col-sm-3 offset-md-1 placeholders" style="max-width: 20">
+        <div class="card text-white col-6 col-sm-3 offset-md-1 placeholders">
             <div>
                 <h6 class="card-title">In Review</h6>
                 <p>10</p>
             </div>
         </div>
-        <div class="card text-white col-6 col-sm-3 offset-md-1 placeholders" style="max-width: 40">
+        <div class="card text-white col-6 col-sm-3 offset-md-1 placeholders">
             <div class="rounded-circle">
                 <h6 class="card-title">Under Consideration</h6>
                 <p>12</p>
@@ -82,7 +82,7 @@
                         <a ng-href="#/dash/project/{{mes._id}}">{{mes.InnovationTitle}}</a>
                     </td>
                     <td>
-                      <a href={{mes.GitLink}} target "_blank">{{mes.GitLink}}</a>
+                      <a href={{mes.GitLink}} target="_blank">{{mes.GitLink}}</a>
                     </td>
                     <td>{{mes.Component}}</td>
                 </tr>
@@ -90,21 +90,21 @@
             <tfoot>
             <td colspan="6">
                 <div class="pagination pull-right">
-                    <ul>
-                        <li ng-class="{disabled: currentPage == 0}">
-                            <a href ng-click="prevPage()">« Prev</a>
-                        </li>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-secondary" ng-class="{disabled: currentPage == 0}">
+                            <a class="text-white" href ng-click="prevPage()">« Prev</a>
+                        </button>
 
-                        <li ng-repeat="n in range(pagedItems.length, currentPage, currentPage + gap) "
+                        <button type="button" class="btn btn-secondary" ng-repeat="n in range(pagedItems.length, currentPage, currentPage + gap) "
                             ng-class="{active: n == currentPage}"
                             ng-click="setPage()">
-                            <a href ng-bind="n + 1">1</a>
-                        </li>
+                            <a class="text-white" href ng-bind="n + 1">1</a>
+                        </button>
 
-                        <li ng-class="{disabled: (currentPage) == pagedItems.length - 1}">
-                            <a href ng-click="nextPage()">Next »</a>
-                        </li>
-                    </ul>
+                        <button type="button" class="btn btn-secondary" ng-class="{disabled: (currentPage) == pagedItems.length - 1}">
+                            <a class="text-white" href ng-click="nextPage()">Next »</a>
+                        </button>
+                    </div>
                 </div>
             </td>
             </tfoot>
