@@ -34,7 +34,7 @@ app.controller('HeaderController', function($scope, $localStorage, $sessionStora
 });
 
 
-app.controller('HomeController', function($scope, $localStorage, $sessionStorage,$http, $filter){
+app.controller('adminController', function($scope, $localStorage, $sessionStorage,$http, $filter){
 
 
   $http({
@@ -522,9 +522,18 @@ app.controller('LoginController', function($scope, $localStorage, $sessionStorag
                 // $localStorage persists data in browser's local storage (prevents data loss on page refresh)
                 $localStorage.status = true;
                 $localStorage.user = response;
+                console.log("type");
+                console.log(typeof response.username);
+                console.log("logged in user:",response.username);
+                console.log("condition", response.username=="admin");
+                if(response.username=="admin"){
+                  $location.path('/account/create');
+                }
+                else{
 
+                  $location.path('/');
+                }
 
-                $location.path('/');
             })
             .error(function(){
                 alert('Login failed. Check username/password and try again.');
@@ -733,8 +742,8 @@ app.config(function($routeProvider) {
 
         //Root
         when('/', {
-            templateUrl: 'views/home.html',
-            controller: 'HomeController'
+          templateUrl: 'views/home1.html',
+          controller: 'VoteController'
         }).
 
         //get project based on id
@@ -756,8 +765,11 @@ app.config(function($routeProvider) {
             templateUrl: 'views/search.html',
             controller: 'SearchController'
         }).
-
-
+// admin routing
+        when('/account/admin', {
+          templateUrl: 'views/home.html',
+          controller: 'adminController'
+        }).
 
         //Login page
         when('/account/login', {
@@ -779,6 +791,12 @@ app.config(function($routeProvider) {
 
         when('/account/review', {
             templateUrl: 'views/review.html',
+            controller: 'reviewController'
+        }).
+
+        //admin routing
+        when('/account/review', {
+            templateUrl: 'views/home.html',
             controller: 'reviewController'
         }).
         // add project
