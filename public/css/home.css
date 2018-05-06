@@ -4,3 +4,19 @@
 .table, td{
 	background-color: #173d5b;
 }
+.table a:link{
+	color: #fbfbfb;
+	text-decoration: underline;
+}
+.table a:visited{
+	color: #fbfbfb;
+	text-decoration: underline;
+}
+.table a:active{
+	color: #fbfbfb;
+	text-decoration: underline;
+}
+.table a:hover{
+	color: #c2c6c4;
+	text-decoration: underline;
+}
