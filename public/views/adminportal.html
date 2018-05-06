@@ -1,1 +1,15 @@
 <p>this is admin portal</p>
+
+<div ng-app>
+  <h2>Todo</h2>
+  <div ng-controller="TodoCtrl">
+    <button class="btn btn-danger" ng-click="start()">Start</button>
+  </div>
+</div>
+
+
+function TodoCtrl($scope) {
+  $scope.start = function() {
+
+  };
+}

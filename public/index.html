@@ -41,7 +41,7 @@
                         <a class="nav-link" href='' ng-click="logout()" ng-show="user.status">Logout</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=''  ng-show="user.status">Welcome: {{user.user.username}}</a>
+                        <a class="nav-link" href=''  ng-show="user.status" ng-model="user.user.username">Welcome: {{user.user.username}}</a>
                     </li>
                 </ul>
 
@@ -63,6 +63,9 @@
     					</a>
     					<a href="#/account/search" class="list-group-item">Search
     					</a>
+              <a href="https://facebook.com" class="list-group-item" ng-show="user.user.username=='admin'">MyFeedback
+              </a>
+
                     </div>
                 </span>
                 <div class="container-fluid col-md-10" ng-view>

@@ -261,8 +261,8 @@ app.controller('VoteSubmitController', function($scope, $location, $http,$localS
             $location.path('/account/login');
         });
 
-$scope.submitVote=function(){
-console.log("inside VoteSubmitController:",$scope.SubmitVote1.vote);
+$scope.submitlike=function(){
+//console.log("inside VoteSubmitController:",$scope.SubmitVote1.vote);
 console.log("id:",$scope.message._id);
 $http({
     method: 'POST',
@@ -270,7 +270,7 @@ $http({
 
     data:{
       'id':$scope.message._id,
-      'vote':$scope.SubmitVote1.vote
+      'vote':1
 
     }
 })
@@ -315,7 +315,35 @@ id=$routeParams.id
       }
   );
 
+  $scope.submitFeedback=function(){
+  console.log("inside VoteSubmitController:",$scope.Submitfeedback1);
+  console.log("id:",$scope.message._id);
+  $http({
+      method: 'POST',
+      url: '/dash/project/feedback',
 
+      data:{
+        'id':$scope.message._id,
+        'status':$scope.Submitfeedback1.status,
+        'feedback':$scope.Submitfeedback1.feedback
+
+      }
+  })
+      .success(function(response){
+          $scope.message = response;
+       alert(" admin Rating Submitted successfully");
+       console.log(response);
+       $location.path('/account/admin');
+        //  console.log('found projects');
+          //console.log(response);
+      })
+      .error(function(response){
+          alert(response);
+          $location.path('/account/login');
+      });
+
+
+  }
 
 
 
@@ -527,7 +555,7 @@ app.controller('LoginController', function($scope, $localStorage, $sessionStorag
                 console.log("logged in user:",response.username);
                 console.log("condition", response.username=="admin");
                 if(response.username=="admin"){
-                  $location.path('/account/create');
+                  $location.path('/account/admin');
                 }
                 else{
 

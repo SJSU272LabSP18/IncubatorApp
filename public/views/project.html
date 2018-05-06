@@ -10,6 +10,7 @@
 		<div class="jumbotron">
 			<div class="row justify-content-center">
 				<h2>Detailed Summary</h2>
+				<!-- <h2>{{message}}<h2> -->
         <!-- <input type="text"  value={{message._id}} name="id" placeholder="Add a gitlink here"> -->
 			</div>
 			<div class="progress">
@@ -79,6 +80,31 @@
 									<td>Operating System:</td>
 									<td>{{message.OperatingSystem}}</td>
 								</tr>
+								<tr>-->
+									<td>Status:</td>-->
+									<td>
+
+										<div class="form-group">
+
+										<form  ng-submit="submitFeedback()" name="Submitfeedback">
+
+
+									  <select class="form-control" name="status"  ng-model="Submitfeedback1.status">
+									    <option>reviewed</option>
+									    <option>approved</option>
+									    <option>rejected</option>
+
+									  </select>
+
+										<p>feedback</p>
+                    <textarea type="text"  name="description" placeholder="add your feedback here" ng-model="Submitfeedback1.feedback" required>
+                </textarea>
+									<button type="submit" class="btn btn-primary">Submit feedback </button>
+									</form>
+									</div></td>
+
+								</tr>
+
 							</tbody>
 						</table>
 					</div>
