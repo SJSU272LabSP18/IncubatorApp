@@ -147,9 +147,11 @@ app.get('/dash/home', function (req, res){
 
     }else{
 
-      console.log("found projects :",projects.length);
+      console.log("found projects  :", projects.filter(value => value.status === 'approved').length);
+
     //  console.log(projects)
       res.json(projects);
+
 
     }
 

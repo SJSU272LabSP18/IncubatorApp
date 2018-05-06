@@ -359,7 +359,11 @@ app.controller('VoteController',function($scope, $localStorage, $http, $sessionS
   })
       .success(function(response){
           $scope.message = response;
-          console.log("response from VoteController",response);
+          $scope.message1 = response.filter(value => value.status === 'approved').length;
+          $scope.message2=response.filter(value => value.status === 'reviewed').length;
+          console.log("scope:",$scope);
+          console.log("type of response ",response.filter(value => value.status === 'approved').length);
+          //console.log("response from VoteController",response.filter(value => value.status == 'approved').length);
 
   //<<<<<<< HEAD
         //  console.log($scope.message[0]._id)
