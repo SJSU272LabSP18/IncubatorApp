@@ -66,14 +66,14 @@
                     <!--<ul class="nav nav-pills flex-column">-->
                         <a href="#/dash/project" class="list-group-item">Projects
                         </a>
-    					<a href="#/account/submit" class="list-group-item">Submit
+    					<a href="#/account/submit" class="list-group-item" ng-hide="user.user.username=='admin'">Submit
     					</a>
                         <!-- <a href="#/dash/project" class="list-group-item">Review
                         </a> -->
     					</a>
     					<a href="#/account/search" class="list-group-item">Search
     					</a>
-              <a href="https://facebook.com" class="list-group-item" ng-show="user.user.username=='admin'">MyFeedback
+              <a href="#/account/admin" class="list-group-item" ng-show="user.user.username=='admin'">MyFeedback
               </a>
 
                     </div>
