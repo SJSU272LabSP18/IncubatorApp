@@ -1,7 +1,9 @@
-html, body{
-	background-color: #2a618e;
-	color: #fbfbfb;
-}
+/*html, body{*/
+	/*!*background-color: #2a618e;*!*/
+	/*color: #fbfbfb;*/
+/*}*/
+
+
 .navbar{
 	background-color: #173d5b;
 }
@@ -25,8 +27,8 @@ html, body{
 
 }
 
-.back_color{
-	background-color: #4678a1;
-	color: #4678a1;
-	background: #4678a1;
-}
+/*.back_color{*/
+	/*background-color: #4678a1;*/
+	/*color: #4678a1;*/
+	/*background: #4678a1;*/
+/*}*/
