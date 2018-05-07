@@ -48,8 +48,8 @@
 									<td>{{message.Description}}</td>
 								</tr>
                 <tr>
-									<td>Rating:</td>
-									<td>{{message.VoteMean}}</td>
+									<td>Likes:</td>
+									<td>{{message.Likes}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -79,9 +79,42 @@
 									<td>Operating System:</td>
 									<td>{{message.OperatingSystem}}</td>
 								</tr>
+
+
+
 							</tbody>
 						</table>
 					</div>
+
+
+					<div>
+							<form autocomplete="on" ng-submit="submitFeedback()" name="Submitfeedback">
+									<fieldset>
+											<legend class="text-white">Project Feedback Page</legend>
+											<div class="form-group">
+				<label class="col-form-label text-white" for="status">status</label>
+												<select class="form-control" id ="status" name="status"  ng-model="Submitfeedback1.status">
+													<option>reviewed</option>
+													<option>approved</option>
+													<option>rejected</option>
+
+												</select>
+
+													<label class="col-form-label text-white" for="feedback">Feedback</label>
+													<textarea type="text" id="feedback" class="form-control" name="feedback" rows="3" placeholder="Add feedback" ng-model="Submitfeedback1.feedback"  required>
+											</textarea>
+
+
+													<button type="submit" class="btn btn-primary">Add Project </button>
+
+											</div>
+
+
+									</fieldset>
+							</form>
+					</div>
+
+
 				</div>
 			</div>
 		</div>

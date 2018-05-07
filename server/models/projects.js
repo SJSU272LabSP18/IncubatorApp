@@ -39,21 +39,23 @@ const ProjectSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
-  TotalVotes:{
+  Likes:{
 type: Number,
 default:0
 
 },
-VoteSum:{
+feedback:{
 
-  type:Number,
-  default:0
+  type:String,
+  default:""
 },
-VoteMean:{
+status:{
 
-  type:Number,
-  default:0
+  type:String,
+  default:""
 }
+
+
 
 });
 

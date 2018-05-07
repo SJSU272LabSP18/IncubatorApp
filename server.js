@@ -169,7 +169,44 @@ app.get('/account/dashboard', function (req, res){
   //  res.sendfile('index.html');
 });
 
+app.post('/account/feedback',function (req, res){
+  var projectId=req.body.id;
+  Projects.findById(projectId).exec(function(err,project){
+      if(err){
+      console.log("error finding the project");
+      res.status(500).json(err)
 
+    }else{
+
+      console.log("found project for feedback :");
+      console.log(project);
+    //  console.log("des",project.Description);
+      // var sum=parseInt(project.VoteSum) + parseInt(req.body.vote);
+      // var votes=project.TotalVotes +1;
+      // var mean=sum/votes;
+      Projects.update({_id:projectId},{$set: {status:req.body.status,feedback:req.body.feedback}},function(err, result){
+
+  if(err){
+
+  console.log("error giving feedback");
+  console.log(err);
+  res.status(500).json(err)
+  }
+  else{
+  console.log("result of update",result);
+  res.json(result);
+  }
+
+      })
+
+    //  res.json(project);
+
+    }
+
+
+  });
+
+});
 
 app.post('/dash/project',function (req, res){
   var projectId=req.body.id;
@@ -182,11 +219,11 @@ app.post('/dash/project',function (req, res){
 
       console.log("found project :");
       console.log(project);
-      console.log("des",project.Description);
-      var sum=parseInt(project.VoteSum) + parseInt(req.body.vote);
-      var votes=project.TotalVotes +1;
-      var mean=sum/votes;
-      Projects.update({_id:projectId},{$set: {VoteSum:sum,TotalVotes:votes,VoteMean:mean}},function(err, result){
+      // console.log("des",project.Description);
+      // var sum=parseInt(project.VoteSum) + parseInt(req.body.vote);
+      var like=project.Likes +1;
+
+      Projects.update({_id:projectId},{$set: {Likes:like}},function(err, result){
 
 if(err){
 

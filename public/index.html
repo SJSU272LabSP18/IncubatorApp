@@ -32,10 +32,10 @@
                         <!--<a class="nav-link" href="#/protected" ng-show="user.status">User Content</a>-->
                     <!--</li>-->
                     <li class="nav-item">
-                        <a class="nav-link" href="#/dash/project" ng-show="user.status">Projects</a>
+                        <a class="nav-link" href="#/dash/project"  ng-show="user.status">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#/account/submit" ng-show="user.status">Submit</a>
+                        <a class="nav-link" href="#/account/submit"  ng-show="user.status">Submit</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#/account/search" ng-show="user.status">Search</a>
@@ -50,7 +50,10 @@
                         <a class="nav-link" href='' ng-click="logout()" ng-show="user.status">Logout</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=''  ng-show="user.status">Welcome: {{user.user.username}}</a>
+                        <a class="nav-link" href=''  ng-show="user.status" ng-model ="user.user.username">Welcome: {{user.user.username}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='#/account/admin'  ng-show="user.user.username == 'admin'">MyFeedback</a>
                     </li>
                 </ul>
 

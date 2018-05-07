@@ -262,7 +262,7 @@ app.controller('VoteSubmitController', function($scope, $location, $http,$localS
         });
 
 $scope.submitVote=function(){
-console.log("inside VoteSubmitController:",$scope.SubmitVote1.vote);
+console.log("inside VoteSubmitController:");
 console.log("id:",$scope.message._id);
 $http({
     method: 'POST',
@@ -270,7 +270,7 @@ $http({
 
     data:{
       'id':$scope.message._id,
-      'vote':$scope.SubmitVote1.vote
+      'vote':1
 
     }
 })
@@ -294,9 +294,9 @@ $http({
 
 
 app.controller('ProjectController', function($scope, $location, $http,$localStorage,$routeParams){
-
+$scope.user = $localStorage
 id=$routeParams.id
-//console.log("routeparams");
+console.log("inside ProjectController");
 //console.log(id)
 
   $http({
@@ -314,8 +314,46 @@ id=$routeParams.id
           $location.path('/account/login');
       }
   );
+$scope.test=function(){
+
+  console.log("inside test")
+}
+  $scope.submitFeedback = function(){
+
+  //console.log("submitter:",$scope.SubmitForm1.submitter);
+  console.log('inside submit feedback');
+  //console.log($scope);
+
+          // Login request
+          $http({
+              method: 'POST',
+              url: '/account/feedback',
+              data: {
+
+                'id': id,
+                'status':$scope.Submitfeedback1.status,
+                'feedback':$scope.Submitfeedback1.feedback
+                  }
+              })
+              .success(function(response){
+                  // $localStorage persists data in browser's local storage (prevents data loss on page refresh)
+                  //$localStorage.status = true;
+                  //$localStorage.user = response;
+                  //console.log($localStorage);
+                  //console.log($location);
+                  alert('feedback added successfully');
+                  $location.path('account/admin');
+              })
+              .error(function(){
+                  alert('Error, unable to add feedback');
+                  $location.path('account/admin');
+              }
+          );
 
 
+
+
+  }
 
 
 
@@ -527,7 +565,7 @@ app.controller('LoginController', function($scope, $localStorage, $sessionStorag
                 console.log("logged in user:",response.username);
                 console.log("condition", response.username=="admin");
                 if(response.username=="admin"){
-                  $location.path('/account/create');
+                  $location.path('/account/admin');
                 }
                 else{
 
