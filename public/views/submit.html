@@ -52,7 +52,7 @@
                     <!--<a href="#tologin" class="to_register"> Go and log in </a>-->
                 <!--</p>-->
             <!--</form>-->
-        <!--</div>--> 
+        <!--</div>-->
     <!--</div>-->
     <div>
         <form autocomplete="on" ng-submit="submitRegister()" name="SubmitForm">
@@ -60,35 +60,35 @@
                 <legend class="text-white">Project Sign Up</legend>
                 <div class="form-group">
                     <label class="col-form-label text-white" for="Submitter">Submitter</label>
-                    <input type="text" id="Submitter" class="form-control" name="submitter"  placeholder="Enter Submitter" ng-model="SubmitForm1.submitter" 
-                     required pattern="^[a-zA-Z][a-zA-Z .,'-]*$" required>
+                    <input type="text" id="Submitter" class="form-control" name="submitter"  placeholder="Enter Submitter" ng-model="SubmitForm1.submitter"
+                     required pattern="^[a-zA-Z][a-zA-Z .,'-]*$" required minlength="3">
 
-                    <small id="Submitter-Help" class="form-text text-help">Name of the group member who submits the project</small>
+                    <small id="Submitter-Help" class="form-text text-help">Name of Submitter (First and Last)</small>
 
                     <label class1="col-form-label text-white" for="CoDevelopers">Co-Developers</label>
-                    <input type="text" id="CoDevelopers" class="form-control" name="cosubmitter" placeholder="Enter Co-Developers" ng-model="SubmitForm1.cosubmitter"  required pattern="^[a-zA-Z][a-zA-Z .,'-]*$"  required>
-                    <small id="CoDevelopers-Help" class="form-text text-help">Name of the group member who work on the project</small>
+                    <input type="text" id="CoDevelopers" class="form-control" name="cosubmitter" placeholder="Enter Co-Developers" ng-model="SubmitForm1.cosubmitter" required pattern="^[a-zA-Z][a-zA-Z .,'- \s]*$" required minlength="3">
+                    <small id="CoDevelopers-Help" class="form-text text-help">Name of the group member(s) working on the project</small>
 
                     <label class="col-form-label text-white" for="InnovationTitle">Innovation Title</label>
                     <input type="text" id="InnovationTitle" class="form-control" name="InnovationTitle"  placeholder="Enter Innovation Title" ng-model="SubmitForm1.InnovationTitle" required>
-                    <small id="InnovationTitle-Help" class="form-text text-help">Title of the project</small>
+                    <small id="InnovationTitle-Help" class="form-text text-help">Title of the Project</small>
 
                     <label class="col-form-label text-white" for="Description">Description</label>
-                    <textarea type="text" id="Description" class="form-control" name="description" rows="3" placeholder="Add a description here - 250 characters max" ng-model="SubmitForm1.description" required pattern="^[a-zA-Z][a-zA-Z .,'-]*$" required>
+                    <textarea type="text" id="Description" class="form-control" name="description" rows="3" placeholder="Add a description here - 250 characters max" ng-model="SubmitForm1.description" required pattern="^[a-zA-Z0-9][a-zA-Z .,'- \s]*$" required minlength="1" required maxlength="250" required>
                 </textarea>
-                    <small id="Description-Help" class="form-text text-help">Add the description here - 250 characters max</small>
+                    <small id="Description-Help" class="form-text text-help">Add Project Description Here - 250 characters max</small>
 
                     <label class="col-form-label text-white" for=" gitlink">Git Link</label>
-                    <input type="text" id=" gitlink" class="form-control" name="gitlink" placeholder="Add a gitlink here" ng-model="SubmitForm1.gitlink" required pattern = "^github.com/[a-zA-Z0-9_.-]*$" required>
-                    <small id=" gitlink-Help" class="form-text text-help">Add a gitlink here</small>
+                    <input type="text" id=" gitlink" class="form-control" name="gitlink" placeholder="Add a gitlink here" ng-model="SubmitForm1.gitlink" required pattern = "^https://github.com/[a-zA-Z0-9_.- \s]*$" required minlength="20" required>
+                    <small id=" gitlink-Help" class="form-text text-help">Add your Project gitlink/ bitbucket url here ex: https://github.com/your-project-name</small>
 
-                    <label class="col-form-label text-white" for=" component">Component</label>
-                    <input type="text" id=" component" class="form-control" name="component" placeholder="Add a component here" ng-model="SubmitForm1.component" required>
-                    <small id=" component-Help" class="form-text text-help">Add a component here</small>
+                    <label class="col-form-label text-white" for=" component">Components</label>
+                    <input type="text" id=" component" class="form-control" name="component" placeholder="Add a component here" ng-model="SubmitForm1.component" required minlength="1" required pattern = "^[a-zA-Z0-9_.- \s]*$">
+                    <small id=" component-Help" class="form-text text-help">Add Components</small>
 
                     <label class="col-form-label text-white" for=" os">Operating System</label>
-                    <input type="text" id=" os" class="form-control" name="os"  placeholder="Add an os here" ng-model="SubmitForm1.os" required>
-                    <small id=" os-Help" class="form-text text-help">Add a os here</small>
+                    <input type="text" id=" os" class="form-control" name="os"  placeholder="Add an os here" ng-model="SubmitForm1.os" required minlength="1">
+                    <small id=" os-Help" class="form-text text-help">Add OS Here</small>
 
                     <button type="submit" class="btn btn-primary">Add Project </button>
 
