@@ -1,4 +1,5 @@
 <!--submit.html-->
+<link rel="stylesheet" href="../css/home.css">
 <div ng-app="MEANapp">
 
 
@@ -54,48 +55,60 @@
             <!--</form>-->
         <!--</div>-->
     <!--</div>-->
-    <div>
-        <form autocomplete="on" ng-submit="submitRegister()" name="SubmitForm">
-            <fieldset>
-                <legend class="text-white">Project Sign Up</legend>
-                <div class="form-group">
-                    <label class="col-form-label text-white" for="Submitter">Submitter</label>
-                    <input type="text" id="Submitter" class="form-control" name="submitter"  placeholder="Enter Submitter" ng-model="SubmitForm1.submitter"
-                     required pattern="^[a-zA-Z][a-zA-Z .,'-]*$" required minlength="3">
+    <div class="row">
+    	<div class="container pt-5 mt-5 pb-5 mb-5 justify-content-center">
+        <div class="card ml-0 mr-0 pr-0 pl-0 col-12 ">
+            <div class="card-header section_title text-center">
+                <b>Project Sign Up</b>
+            </div>
+            <div class="card-body">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+				        <form autocomplete="on" ng-submit="submitRegister()" name="SubmitForm">
+				            <fieldset>
+				                <div class="form-group">
+				                    <label class="col-form-label" for="Submitter">Submitter</label>
+				                    <input type="text" id="Submitter" class="form-control" name="submitter"  placeholder="Enter Submitter" ng-model="SubmitForm1.submitter"
+				                     required pattern="^[a-zA-Z][a-zA-Z .,'-]*$" required minlength="3">
 
-                    <small id="Submitter-Help" class="form-text text-help">Name of Submitter (First and Last)</small>
+				                    <small id="Submitter-Help" class="form-text text-help">Name of Submitter (First and Last)</small>
 
-                    <label class1="col-form-label text-white" for="CoDevelopers">Co-Developers</label>
-                    <input type="text" id="CoDevelopers" class="form-control" name="cosubmitter" placeholder="Enter Co-Developers" ng-model="SubmitForm1.cosubmitter" required pattern="^[a-zA-Z][a-zA-Z .,'- \s]*$" required minlength="3">
-                    <small id="CoDevelopers-Help" class="form-text text-help">Name of the group member(s) working on the project</small>
+				                    <label class1="col-form-label" for="CoDevelopers">Team</label>
+				                    <input type="text" id="CoDevelopers" class="form-control" name="cosubmitter" placeholder="Enter Team" ng-model="SubmitForm1.cosubmitter" required pattern="^[a-zA-Z][a-zA-Z .,'- \s]*$" required minlength="3">
+				                    <small id="CoDevelopers-Help" class="form-text text-help">Name of the group member(s) working on the project</small>
 
-                    <label class="col-form-label text-white" for="InnovationTitle">Innovation Title</label>
-                    <input type="text" id="InnovationTitle" class="form-control" name="InnovationTitle"  placeholder="Enter Innovation Title" ng-model="SubmitForm1.InnovationTitle" required>
-                    <small id="InnovationTitle-Help" class="form-text text-help">Title of the Project</small>
+				                    <label class="col-form-label" for="InnovationTitle">Project Title</label>
+				                    <input type="text" id="InnovationTitle" class="form-control" name="InnovationTitle"  placeholder="Enter Project Title" ng-model="SubmitForm1.InnovationTitle" required>
+				                    <small id="InnovationTitle-Help" class="form-text text-help">Title of the Project</small>
 
-                    <label class="col-form-label text-white" for="Description">Description</label>
-                    <textarea type="text" id="Description" class="form-control" name="description" rows="3" placeholder="Add a description here - 250 characters max" ng-model="SubmitForm1.description" required pattern="^[a-zA-Z0-9][a-zA-Z .,'- \s]*$" required minlength="1" required maxlength="250" required>
-                </textarea>
-                    <small id="Description-Help" class="form-text text-help">Add Project Description Here - 250 characters max</small>
+				                    <label class="col-form-label" for="Description">Description</label>
+				                    <textarea type="text" id="Description" class="form-control" name="description" rows="3" placeholder="Add a description here - 250 characters max" ng-model="SubmitForm1.description" required pattern="^[a-zA-Z0-9][a-zA-Z .,'- \s]*$" required minlength="1" required maxlength="250" required>
+				                		</textarea>
+				                    <small id="Description-Help" class="form-text text-help">Add Project Description Here - 250 characters max</small>
 
-                    <label class="col-form-label text-white" for=" gitlink">Git Link</label>
-                    <input type="text" id=" gitlink" class="form-control" name="gitlink" placeholder="Add a gitlink here" ng-model="SubmitForm1.gitlink" required pattern = "^https://github.com/[a-zA-Z0-9_.- \s]*$" required minlength="20" required>
-                    <small id=" gitlink-Help" class="form-text text-help">Add your Project gitlink/ bitbucket url here ex: https://github.com/your-project-name</small>
+				                    <label class="col-form-label" for=" gitlink">Git Link</label>
+				                    <input type="url" id=" gitlink" class="form-control" name="gitlink" placeholder="Add a gitlink here" ng-model="SubmitForm1.gitlink" required pattern = "^https://github.com/[a-zA-Z0-9_.- \s]*$" required minlength="20" required>
+				                    <small id=" gitlink-Help" class="form-text text-help">Add your Project gitlink/ bitbucket url here ex: https://github.com/your-project-name</small>
 
-                    <label class="col-form-label text-white" for=" component">Components</label>
-                    <input type="text" id=" component" class="form-control" name="component" placeholder="Add a component here" ng-model="SubmitForm1.component" required minlength="1" required pattern = "^[a-zA-Z0-9_.- \s]*$">
-                    <small id=" component-Help" class="form-text text-help">Add Components</small>
+				                    <!-- <label class="col-form-label" for=" component">Components</label>
+				                    <input type="text" id=" component" class="form-control" name="component" placeholder="Add a component here" ng-model="SubmitForm1.component" required minlength="1" required pattern = "^[a-zA-Z0-9_.- \s]*$">
+				                    <small id=" component-Help" class="form-text text-help">Add Components</small>
 
-                    <label class="col-form-label text-white" for=" os">Operating System</label>
-                    <input type="text" id=" os" class="form-control" name="os"  placeholder="Add an os here" ng-model="SubmitForm1.os" required minlength="1">
-                    <small id=" os-Help" class="form-text text-help">Add OS Here</small>
+				                    <label class="col-form-label" for=" os">Operating System</label>
+				                    <input type="text" id=" os" class="form-control" name="os"  placeholder="Add an os here" ng-model="SubmitForm1.os" required minlength="1">
+				                    <small id=" os-Help" class="form-text text-help">Add OS Here</small> -->
+				                    <br>
+				                    <button type="submit" class="btn btn-primary">Add Project </button>
 
-                    <button type="submit" class="btn btn-primary">Add Project </button>
-
-                </div>
+				                </div>
 
 
-            </fieldset>
-        </form>
+				            </fieldset>
+				        </form>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			</div>
     </div>
 </div>
