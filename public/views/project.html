@@ -1,125 +1,113 @@
-<link rel="stylesheet" href="../css/review.css">
+<!--project.html-->
+<link rel="stylesheet" href="../css/home.css">
 <div ng-app="MEANapp">
-	<div class="container">
-		<div class="row">
-			<h2 class="text-white">Reviews &amp; Status</h2>
-		</div>
-		<div class="row text-white">
-			<p></p>
-		</div>
-		<div class="jumbotron">
-			<div class="row justify-content-center">
-				<h2>Detailed Summary</h2>
-        <!-- <input type="text"  value={{message._id}} name="id" placeholder="Add a gitlink here"> -->
-			</div>
-			<div class="progress">
-				<div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+	<div class="row">
+		<div class="container pt-5 mt-5 pb-5 mb-5">
+			<div class="card ml-0 mr-0 pr-0 pl-0 col-12">
+				<div class="card-header section_title text-center d-flex flex-wrap justify-content-between align-items-center">
+					<h3>Project {{message.InnovationTitle}}</h3>
+					<span>Likes: {{message.Likes}}</span>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-7">
-					<div class="table">
-						<table class="table-responsive table-light">
-							<tbody>
-								<tr>
-									<td>Project Title:</td>
-									<td>{{message.InnovationTitle}}</td>
-								</tr>
-								<tr>
-									<td>Project ID:</td>
-									<td>{{message._id}}</td>
-								</tr>
-								<tr>
-									<td>Status:</td>
-									<td>Under Consideration</td>
-								</tr>
-								<tr>
-									<td>Submission Date:</td>
-									<td>2 May 2018, 10:17 AM PST</td>
-								</tr>
-								<tr>
-									<td>Repository:</td>
-									<td>
-										<a href={{message.GitLink}} target="_blank">{{message.GitLink}}</a>
-									</td>
-								</tr>
-								<tr>
-									<td>Description:</td>
-									<td>{{message.Description}}</td>
-								</tr>
-                <tr>
-									<td>Likes:</td>
-									<td>{{message.Likes}}</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div class="col-md-5">
-					<div class="table">
-						<table class="table-responsive table-light">
-							<tbody>
-								<tr>
-									<td>Submitter:</td>
-									<td>{{message.Submitter}}</td>
-								</tr>
-								<tr>
-									<td>Co-Submitters:</td>
-									<td>{{message.CoSubmitters}}</td>
-								</tr>
-								<tr>
-									<td>Component</td>
-									<td>{{message.Component}}</td>
-								</tr>
-								<tr>
-									<td>Product:</td>
-									<td>Project Incubator</td>
-								</tr>
-								<tr>
-									<td>Operating System:</td>
-									<td>{{message.OperatingSystem}}</td>
-								</tr>
-
-
-
-							</tbody>
-						</table>
-					</div>
-
-
-					<div>
+				<div class="card-body">
+					<div class="col-md-12">
+						<div class="progress mb-4">
+							<div class="progress-bar progress-bar-striped bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 15%">
+							</div>
+						</div>
+						<div class="container" id="project-data">
+							<div class="row mb-2">
+								<div class="col-md-6 d-flex flex-wrap justify-content-between align-items-center">
+									<b>Project Title:</b>
+									<span>{{message.InnovationTitle}}</span>
+								</div>
+								<div class="col-md-6 d-flex flex-wrap justify-content-between align-items-center">
+									<b>Project ID:</b>
+									<span>{{message._id}}
+									</span>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-6 d-flex flex-wrap justify-content-between align-items-center">
+									<b>Status:</b>
+									<span>Under Consideration
+									</span>
+								</div>
+								<div class="col-md-6 d-flex flex-wrap justify-content-between align-items-center">
+									<b>Submission Date:</b>
+									<span>{{message.DATE}}
+									</span>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-6 d-flex flex-wrap justify-content-between align-items-center">
+									<b>Submitter:</b>
+									<span>{{message.Submitter}}
+									</span>
+								</div>
+								<div class="col-md-6 d-flex flex-wrap justify-content-between align-items-center">
+									<b>Team:</b>
+									<span>{{message.CoSubmitters}}
+									</span>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-12 d-flex flex-wrap justify-content-between align-items-center">
+									<b>Repository:</b>
+									<a href={{message.GitLink}} target="_blank">{{message.GitLink}}</a>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 d-flex justify-content-between align-items-center">
+									<b>Description:</b>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 mb-2 d-flex flex-wrap justify-content-between align-items-center">
+									{{message.Description}}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 mb-2 d-flex flex-wrap justify-content-between align-items-center">
+									<b>Status:</b>
+									<span>{{message.status}}</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 d-flex justify-content-between align-items-center">
+									<b>Feedback:</b>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 mb-2 d-flex flex-wrap justify-content-between align-items-center">
+									{{message.feedback}}
+								</div>
+							</div>
+						</div>
+						<div class="container" id="feedback">
 							<form autocomplete="on" ng-submit="submitFeedback()" name="Submitfeedback">
-									<fieldset>
-											<legend class="text-white">Project Feedback Page</legend>
-											<div class="form-group">
-				<label class="col-form-label text-white" for="status">status</label>
-												<select class="form-control" id ="status" name="status"  ng-model="Submitfeedback1.status">
-													<option>reviewed</option>
-													<option>approved</option>
-													<option>rejected</option>
-
-												</select>
-
-													<label class="col-form-label text-white" for="feedback">Feedback</label>
-													<textarea type="text" id="feedback" class="form-control" name="feedback" rows="3" placeholder="Add feedback" ng-model="Submitfeedback1.feedback"  required>
-											</textarea>
-
-
-													<button type="submit" class="btn btn-primary">Add Project </button>
-
-											</div>
-
-
-									</fieldset>
+								<fieldset>
+									<legend class="text">Project Feedback</legend>
+									<div class="form-group">
+									<label class="col-form-label" for="status">status
+									</label>
+									<select class="form-control" id ="status" name="status"  ng-model="Submitfeedback1.status">
+										<option>reviewed</option>
+										<option>approved</option>
+										<option>rejected</option>
+									</select>
+									<label class="col-form-label" for="feedback">Feedback</label>
+									<textarea type="text" id="feedback" class="form-control" name="feedback" rows="3" placeholder="Add feedback" ng-model="Submitfeedback1.feedback"  required>
+									</textarea>
+									<br>
+									<button type="submit" class="btn btn-primary">Submit Feedback</button>
+									</div>
+								</fieldset>
 							</form>
+						</div>
 					</div>
-
-
 				</div>
 			</div>
 		</div>
-		<footer>
-			<a class="btn btn-primary" href="#protected" role="button">TLT</a>
-		</footer>
 	</div>
 </div>
+<!--project.html-->
