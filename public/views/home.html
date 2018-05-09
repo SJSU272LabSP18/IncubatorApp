@@ -1,116 +1,101 @@
 <!--home.html-->
-
-<!--<div class="container">-->
-    <!--<section class="row text-center placeholders">-->
-        <!--<div class="col-6 col-sm-3 placeholders style="max-width: 20">-->
-            <!--<div>-->
-                <!--<h6 class="card-title">Total Projects</h6>-->
-                <!--<p>{{message.length}}</p>-->
-                <!--<p> Innovation Title</p>-->
-                <!--<ul>-->
-                    <!--<li ng-repeat="mes in message">-->
-                        <!--<a ng-href="#/dash/home/{{mes._id}}"  >   {{mes.InnovationTitle}}</a>-->
-                    <!--</li>-->
-                <!--</ul>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col-6 col-sm-3 placeholders" style="max-width: 20">-->
-            <!--<div class="rounded-circle">-->
-                <!--<h6 class="card-title">In Review</h6>-->
-                <!--<p>672</p>-->
-                <!--<p>GitHub Link </p>-->
-                <!--<ul>-->
-                    <!--<li ng-repeat="mes in message">-->
-                        <!--<a href={{mes.GitLink}} target="_blank">{{mes.GitLink}}<a>-->
-                    <!--</li>-->
-                <!--</ul>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col-6 col-sm-3 placeholders" style="max-width: 20">-->
-            <!--<div class="rounded-circle">-->
-                <!--<h6 class="card-title">Under Consideration</h6>-->
-                <!--<p>1050</p>-->
-                <!--<p>Component </p>-->
-                <!--<ul>-->
-                    <!--<li ng-repeat="mes in message">-->
-                        <!--{{mes.Component}}-->
-                    <!--</li>-->
-                <!--</ul>-->
-            <!--</div>-->
-        <!--</div>-->
-
-    <!--</section>-->
-<!--</div>-->
 <link rel="stylesheet" href="../css/home.css">
-<div class="container">
-    <section class="row text-center placeholders">
-        <div class="card text-white col-6 col-sm-3 placeholders " style="max-width: 20rem;">
-            <div>
-                <h6 class="card-title">Total Projects</h6>
-                <p>{{message.length}}</p>
-            </div>
-        </div>
-        <div class="card text-white col-6 col-sm-3 offset-md-1 placeholders" style="max-width: 20">
-            <div>
-                <h6 class="card-title">In Review</h6>
-                <p>10</p>
-            </div>
-        </div>
-        <div class="card text-white col-6 col-sm-3 offset-md-1 placeholders" style="max-width: 40">
-            <div class="rounded-circle">
-                <h6 class="card-title">Under Consideration</h6>
-                <p>12</p>
-            </div>
-        </div>
-    </section>
-    <h2>Section Title</h2>
-    <div>
-        <table class="table">
-            <thread>
-                <tr>
-                    <th class="InnovationTitle" scope="col" custom-sort order="'InnovationTitle'" sort="sort">Innovation Title&nbsp;</th>
-                    <th class="GitHubLink" scope="col" custom-sort order="'GitHubLink'" sort="sort">GitHub Link&nbsp;</th>
-                    <th class="Component" scope="col" custom-sort order="'Component'" sort="sort">Component&nbsp;</Th>
-                      <th class="Component" scope="col" custom-sort order="'Component'" sort="sort">Rating&nbsp;</Th>
-                </tr>
-            </thread>
-            <!--<pre>pagedItems.length: {{pagedItems.length|json}}</pre>-->
-            <!--<pre>currentPage: {{currentPage|json}}</pre>-->
-            <!--<pre>currentPage: {{sort|json}}</pre>-->
-            <tbody>
-                <tr class="table" ng-repeat="mes in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
-                    <td scope="row">
-                        <a ng-href="#/dash/home/{{mes._id}}">{{mes.InnovationTitle}}</a>
-                    </td>
-                    <td>
-                      <a href={{mes.GitLink}} target="_blank">{{mes.GitLink}}</a>
-                    </td>
-                    <td>{{mes.Component}}</td>
-                    <td>{{mes.VoteMean}}</td>
-                </tr>
-            </tbody>
-            <tfoot>
-            <td colspan="6">
-                <div class="btn-group" role="group">
-                    <ul class="pagination">
-                        <button type="button" class="btn btn-secondary" ng-class="{disabled: currentPage == 0}">
-                            <a class="text-white" href ng-click="prevPage()">« Prev</a>
-                        </button>
+<div class="container-fluid pt-4">
+  <section class="row">
+      <div class="card_like border-light col col-order-1 mr-1 shadow">
+          <div class="row align-items-start">
+              <div class="col-md-4 pt-2 pl-0 pr-0 ">
+                  <img class="icon" src="../assets/report-2-512.png">
+              </div>
+              <div class="col-md-8 pl-0 pr-0">
+                  <div class="row justify-content-end pr-4 pl-0">
+                      <i class="text-white">Projects</i>
+                  </div>
+                  <div class="row justify-content-end pr-4 pl-0">
+                      <div class="huge text-white" >{{message.length}}</div>
+                  </div>
+                  <br>
+              </div>
+          </div>
+      </div>
 
-                        <button type="button" class="btn btn-secondary" ng-repeat="n in range(pagedItems.length, currentPage, currentPage + gap) "
-                            ng-class="{active: n == currentPage}"
-                            ng-click="setPage()">
-                            <a class="text-white" href ng-bind="n + 1">1</a>
-                        </button>
+      <div class="card_like border-light col shadow ml-1 mr-1">
+          <div class="row align-items-start">
+              <div class="col-md-4 pt-2 pl-2 pr-0">
+                  <img class="icon" src="../assets/edit-12-512.png">
+              </div>
+              <div class="col-md-8 pl-0 pr-0">
+                  <div class="row justify-content-end pr-4 pl-0">
+                      <i class="text-white">In Review</i>
+                  </div>
+                  <div class="row justify-content-end pr-4 pl-0">
+                      <div class="huge text-white">10</div>
+                  </div>
+              </div>
+          </div>
+      </div>
 
-                        <button type="button" class="btn btn-secondary" ng-class="{disabled: (currentPage) == pagedItems.length - 1}">
-                            <a class="text-white"  href ng-click="nextPage()">Next »</a>
-                        </button>
-                    </ul>
-                </div>
-            </td>
-            </tfoot>
+      <div class="card_like border-light col col-order-12 ml-1 shadow">
+          <div class="row align-items-start">
+              <div class="col-md-4 pt-2 pl-0 pr-0">
+                  <img class="icon" src="../assets/search-512.png">
+              </div>
+              <div class="col-md-8 pl-0 pr-0">
+                  <div class="row justify-content-end pr-4 pl-0">
+                      <i class="text-white text-right">Under Consideration</i>
+                  </div>
+                  <div class="row justify-content-end pr-4 pl-0">
+                      <div class="huge  text-white">12</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <br>
+  <div class="card border-secondary mb-0 pb-0">
+    <div class="card-header section_title"><b>Projects</b></div>
+      <div class="card-body pr-3 pl-3 pt-3 pb-0">
+        <table class="table  table-bordered pb-0 mb-0">
+          <thread>
+            <tr class="thread_header">
+              <th class="InnovationTitle" scope="col" custom-sort order="'InnovationTitle'" sort="sort">Innovation Title&nbsp;</th>
+              <th class="GitHubLink" scope="col" custom-sort order="'GitHubLink'" sort="sort">GitHub Link&nbsp;</th>
+              <th class="CoSubmitters" scope="col" custom-sort order="'CoSubmitters'" sort="sort">Team&nbsp;</th>
+              <th class="Rating" scope="col" custom-sort order="'Rating'" sort="sort">Likes&nbsp;</th>
+            </tr>
+          </thread>
+          <tbody>
+            <tr class="table table-striped" ng-repeat="mes in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+              <td scope="row">
+                <a ng-href="#/dash/home/{{mes._id}}">{{mes.InnovationTitle}}</a>
+              </td>
+              <td>
+                <a href={{mes.GitLink}} target="_blank">{{mes.GitLink}}</a>
+              </td>
+              <td>{{mes.CoSubmitters}}</td>
+              <td>{{mes.Likes}}</td>
+            </tr>
+          </tbody>
         </table>
+        <div class="pagination pull-right pt-2 pb-3">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-secondary" ng-class="{disabled: currentPage == 0}">
+              <a class="text-white" href ng-click="prevPage()">« Prev</a>
+            </button>
+
+            <button type="button" class="btn btn-secondary" ng-repeat="n in range(pagedItems.length, currentPage, currentPage + gap) "
+                    ng-class="{active: n == currentPage}"
+                    ng-click="setPage()">
+              <a class="text-white" href ng-bind="n + 1">1</a>
+            </button>
+
+            <button type="button" class="btn btn-secondary" ng-class="{disabled: (currentPage) == pagedItems.length - 1}">
+              <a class="text-white" href ng-click="nextPage()">Next »</a>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 <!--/home.html-->
